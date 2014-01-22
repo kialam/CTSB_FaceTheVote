@@ -41,28 +41,28 @@ var videos =	[
     },
     {
         code: '<iframe width="810" height="456" src="' + 
-            "//www.youtube.com/embed/oMdwJ7fyp00?rel=0" +
+            "//www.youtube.com/embed/MoANeCLWOjI?rel=0" +
             'frameborder="0" allowfullscreen></iframe>' +
             '<a id="start" href="index.html">Start</a>', // end
         title: 'stuff',
     },
     {
         code: '<iframe width="810" height="456" src="' + 
-            "//www.youtube.com/embed/oMdwJ7fyp00?rel=0" +
+            "//www.youtube.com/embed/ugo7Y2lRsxc?rel=0" +
             'frameborder="0" allowfullscreen></iframe>' +
             '<a id="start" href="index.html">Start</a>', // end
         title: 'stuff',
     },
     {
         code: '<iframe width="810" height="456" src="' + 
-            "//www.youtube.com/embed/oMdwJ7fyp00?rel=0" +
+            "//www.youtube.com/embed/Y-P0Hs0ADJY?rel=0" +
             'frameborder="0" allowfullscreen></iframe>' +
             '<a id="start" href="index.html">Start</a>', // end
         title: 'stuff',
     },
     {
         code: '<iframe width="810" height="456" src="' + 
-            "//www.youtube.com/embed/oMdwJ7fyp00?rel=0" +
+            "//www.youtube.com/embed/FHY5pwgCY3w?rel=0" +
             'frameborder="0" allowfullscreen></iframe>' +
             '<a id="start" href="index.html">Start</a>', // end
         title: 'stuff',
