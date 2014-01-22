@@ -31,10 +31,43 @@ var nosmile =	'<img class="align" src="images/nosmile.png">' +
 var smile =		'<img class="align" src="images/smile.png">' +
 				'<a id="nosmile" href="nosmile.html">No Smile</a>'; // end
 
-var videos =	'<iframe width="810" height="456" src="' +
-				"//www.youtube.com/embed/oMdwJ7fyp00?rel=0" +
-				'frameborder="0" allowfullscreen></iframe>' +
-				'<a id="start" href="index.html">Start</a>'; // end
+var videos =	[
+    {
+        code: '<iframe width="810" height="456" src="' + 
+            "//www.youtube.com/embed/oMdwJ7fyp00?rel=0" +
+            'frameborder="0" allowfullscreen></iframe>' +
+            '<a id="start" href="index.html">Start</a>', // end
+        title: 'stuff',
+    },
+    {
+        code: '<iframe width="810" height="456" src="' + 
+            "//www.youtube.com/embed/oMdwJ7fyp00?rel=0" +
+            'frameborder="0" allowfullscreen></iframe>' +
+            '<a id="start" href="index.html">Start</a>', // end
+        title: 'stuff',
+    },
+    {
+        code: '<iframe width="810" height="456" src="' + 
+            "//www.youtube.com/embed/oMdwJ7fyp00?rel=0" +
+            'frameborder="0" allowfullscreen></iframe>' +
+            '<a id="start" href="index.html">Start</a>', // end
+        title: 'stuff',
+    },
+    {
+        code: '<iframe width="810" height="456" src="' + 
+            "//www.youtube.com/embed/oMdwJ7fyp00?rel=0" +
+            'frameborder="0" allowfullscreen></iframe>' +
+            '<a id="start" href="index.html">Start</a>', // end
+        title: 'stuff',
+    },
+    {
+        code: '<iframe width="810" height="456" src="' + 
+            "//www.youtube.com/embed/oMdwJ7fyp00?rel=0" +
+            'frameborder="0" allowfullscreen></iframe>' +
+            '<a id="start" href="index.html">Start</a>', // end
+        title: 'stuff',
+    }
+];
 
 navigator.getMedia = ( navigator.getUserMedia ||
                        navigator.webkitGetUserMedia ||
@@ -44,9 +77,7 @@ navigator.getMedia = ( navigator.getUserMedia ||
 
 /* Transitions & Animations */
 $(document).ready(function(){
-	// check webcam
-	// checkBrowser();
-
+	
 	$("#webcam").on('click', function(event){
 		event.preventDefault();
 		$('.container').fadeOut('slow', function(){
