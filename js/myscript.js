@@ -36,16 +36,39 @@ var videos =	'<iframe width="810" height="456" src="' +
 				'frameborder="0" allowfullscreen></iframe>' +
 				'<a id="start" href="index.html">Start</a>'; // end
 
+navigator.getMedia = ( navigator.getUserMedia ||
+                       navigator.webkitGetUserMedia ||
+                       navigator.mozGetUserMedia ||
+                       navigator.msGetUserMedia);
+
 
 /* Transitions & Animations */
 $(document).ready(function(){
+	// check webcam
+	// checkBrowser();
+
 	$("#webcam").on('click', function(event){
 		event.preventDefault();
 		$('.container').fadeOut('slow', function(){
 			$('.container').html(webcam);
-			$('.container').fadeIn('slow');
+			$('.container').fadeIn('slow', function(){
+				//activate webcam
+				navigator.getMedia({
+					video: true,
+					audio: false,
+				},
+				function(videoStream){
+					alert('we have your webcam');
+				},
+				function(err){
+					console.log("The following error occurred: ")
+					console.log(err);
+					// console.log("you didn't allow for webcam access");
+				});
+			});
 		});
-	})
+	});
+
 	$(".container").on('click', '#smile', function(event){
 		event.preventDefault();
 		$('.container').fadeOut('slow', function(){
