@@ -74,7 +74,6 @@ navigator.getMedia = ( navigator.getUserMedia ||
                        navigator.mozGetUserMedia ||
                        navigator.msGetUserMedia);
 
-
 /* Transitions & Animations */
 $(document).ready(function(){
 	
