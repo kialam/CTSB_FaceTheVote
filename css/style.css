@@ -1,25 +1,25 @@
 .container {
-	width: 810px;
-	height: 500px;
-	background-color: #000;
-	background-image: url('../images/bg.png');
-	background-repeat: no-repeat;
-	margin: 0 auto;
-	position: relative;
+    width: 810px;
+    height: 500px;
+    background-color: #000;
+    background-image: url('../images/bg.png');
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    position: relative;
 }
 
 .wrapper {
-	/*padding-top: 83px;*/
-	background-color: blue;
-	margin: 0 auto;
-	width: 545px;
-	/*height: 310px;*/
+    /*padding-top: 83px;*/
+    background-color: blue;
+    margin: 0 auto;
+    width: 545px;
+    /*height: 310px;*/
 }
 
 .align {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -52,4 +52,39 @@ h1 {
 p {
 	color: #fff;
 	text-align: center;
+}
+
+.page {
+    width: 810px;
+    height: 500px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: block;
+}
+
+.container .hidden {
+    opacity: 0;
+    z-index: -1;
+}
+
+.start {
+    
+}
+
+.webcam {
+    
+}
+
+.smile {
+    
+}
+
+.nosmile {
+    
+}
+
+.videos {
+    
 }
