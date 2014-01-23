@@ -5,30 +5,58 @@ var Webcam = {
         
         event.preventDefault();
         
-        //activate webcam
-        navigator.getMedia(
-            {
-                video: true,
-                audio: false,
-            },
+        // check for camerasupport
+        if (navigator.getUserMedia) {
+            // set up stream
+            var videoSelector = {video : true};
 
-            function(videoStream) {
-                console.log('we have your webcam');
-                webcam.addClass('hidden');
-                smile.removeClass('hidden');
-            },
+            // check for chrome version
+            if (window.navigator.appVersion.match(/Chrome\/(.*?) /)) {
+                    var chromeVersion = parseInt(window.navigator.appVersion.match(/Chrome\/(\d+)\./)[1], 10);
+                    if (chromeVersion < 20) {
+                            videoSelector = "video";
+                    }
+            };
 
-            function(err){
+            //call get user media
+            navigator.getUserMedia(videoSelector, 
 
-                if( err.name === 'PermissionDeniedError' ) {
-                    self.showAccessDenied();
+                // if we got a video
+                function( stream ) {
+                    webcam.addClass('hidden');
+                    smile.removeClass('hidden');
+
+                    if (vid.mozCaptureStream) {
+                        vid.mozSrcObject = stream;
+                    } else {
+                        vid.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
+                    }
+
+                    vid.play();
+
+                // if we didnt get a video
+                }, function() {
+                    if( err.name === 'PermissionDeniedError' ) {
+                        self.showAccessDenied();
+                    }
+
+                    if( err.name === 'ConstraintNotSatisfiedError' ) {
+                        self.showNoWebcam();
+                    }
                 }
+            );
+                
+        } else {
+            // no browser support
+            self.showNoWebcam();
+        }
 
-                if( err.name === 'ConstraintNotSatisfiedError' ) {
-                    self.showNoWebcam();
-                }
-            }
-        );
+        // start the smile training because our webcam is enabled
+        vid.addEventListener('canplay', function() {
+            // start the smile tracker
+            var st = new SmileTracker();
+            st.startVideo();
+        }, false);
     },
     showAccessDenied: function() {
         alert('you denied us access to your webcam');

@@ -9,17 +9,14 @@ var VideoSwitcher = {
         var player;
         var playerElem = $('.player')[0];
         
-        var player;
+        var videoId;
         
         player = new YT.Player(playerElem, {
             height: '456',
             width: '810',
-//            loadPlaylist: {
-//                listType:'playlist',
-//                list:['oMdwJ7fyp00', 'MoANeCLWOjI', 'ugo7Y2lRsxc', 'Y-P0Hs0ADJY', 'FHY5pwgCY3w'],
-//                index:parseInt(0),
-//                suggestedQuality:'medium'
-//            },
+            playerVars: {
+                controls: 1
+            },
             events: {
                 'onReady': onPlayerReady,
                 'onStateChange': onPlayerStateChange
@@ -27,7 +24,6 @@ var VideoSwitcher = {
         });
         
         function onPlayerReady(event) {
-//            event.target.cuePlaylist('oMdwJ7fyp00,MoANeCLWOjI,ugo7Y2lRsxc,Y-P0Hs0ADJY,FHY5pwgCY3w');
             event.target.loadPlaylist(['oMdwJ7fyp00', 'MoANeCLWOjI', 'ugo7Y2lRsxc', 'Y-P0Hs0ADJY', 'FHY5pwgCY3w']);
             event.target.setShuffle({
                 shufflePlaylist: true
@@ -35,27 +31,46 @@ var VideoSwitcher = {
             event.target.playVideoAt(0);
         }
         
-        var done = false;
         function onPlayerStateChange(event) {
             
             if (event.data == YT.PlayerState.PLAYING) {
                 console.log('playing')
+                // user is playing the video
+                var data = event.target.getVideoData();
+                var index = event.target.getPlaylistIndex();
+                
+                if(data.video_id !== videoId) {
+                    // we changed videos
+                    vid = data.video_id;
+                    console.log(videoId);
+                    
+                    // start the smiletracker
+                    
+                }
+                
             }
             
             if(event.data == YT.PlayerState.ENDED) {
                 console.log('ended')
+                // should only get this when all the commercials are done playing
+                
+                // show stats
+                
             }
             
             if(event.data == YT.PlayerState.PAUSED) {
                 console.log('paused')
+                // the user can do this at any point
             }
             
             if(event.data == YT.PlayerState.BUFFERING) {
                 console.log('buffering')
+                // shouldnt need to deal with this
             }
             
             if(event.data == YT.PlayerState.CUED) {
                 console.log('cued')
+                //  shouldnt need to deal with this
             }
             
         }
@@ -63,12 +78,6 @@ var VideoSwitcher = {
         function stopVideo() {
             player.stopVideo();
         }
-        
-        // start the smiletracker
-        
-        
-        // set a video complete function
-        
         
     },
     shuffle: function(o) {

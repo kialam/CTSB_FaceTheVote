@@ -3,11 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Face the Vote</title>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- utility scripts -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <!--<script src="http://modernizr.com/downloads/modernizr-latest.js"></script>-->    
-    <!--<script src="js/check_browser.js"></script>-->
-    <!--<script src="https://www.youtube.com/iframe_api"></script>-->
     <script>
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
@@ -17,6 +16,18 @@
     <script src="js/definitions.js"></script>
     <script src="js/webcam.js"></script>
     <script src="js/videoSwitcher.js"></script>
+    
+    <!-- smile tracker scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/clmtrackr.js"></script>
+    <script src="models/model_pca_20_svm.js"></script>
+    <script src="js/Stats.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="js/emotion_classifier.js"></script>
+    <script src="js/emotionmodel.js"></script>
+    <script src="js/SmileTracker.js"></script>
+    
+    <!-- master -->
     <script src="js/myscript.js"></script>
 
   </head>
@@ -42,12 +53,8 @@
             </div>
         </div>
         <div class="page smile hidden">
-            <img class="align" src="images/smile.png">
-            <a id="nosmile" href="nosmile.html">No Smile</a>
-        </div>
-        <div class="page nosmile hidden">
-            <img class="align" src="images/nosmile.png">
-            <a id="videos" href="videos.html">Videos</a>
+            <video id="videoel" width="400" height="300" preload="auto" loop></video>
+            <canvas id="overlay" width="400" height="300"></canvas>
         </div>
         <div class="page videos hidden">
             <div class="player"></div>

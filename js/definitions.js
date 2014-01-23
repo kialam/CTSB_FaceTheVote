@@ -30,13 +30,15 @@ var snippets = {
     videoHTML: '<div class="player"></div>'
 };
 
-navigator.getMedia = ( navigator.getUserMedia ||
-                       navigator.webkitGetUserMedia ||
-                       navigator.mozGetUserMedia ||
-                       navigator.msGetUserMedia);
+navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+window.URL = window.URL || window.webkitURL || window.msURL || window.mozURL;
                
 var start,
     webcam,
     smile,
     nosmile,
-    videos;
+    videos,
+    vid,
+    overlay,
+    overlayCC;
+    

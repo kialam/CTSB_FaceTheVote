@@ -1,0 +1,21 @@
+/*
+	GLOBAL
+*/
+html, body { width: 100%; height: 100%; }
+
+img { display: block; }
+
+#home { position: absolute; top: 10px; left: 10px; width: 60px; height: 75px; z-index: 1000; }
+#home img { width: 100%; height: 100%; }
+
+#wrapper { width: 1028px; height: 791px; position: relative; }
+
+#wrapper .bg { position: absolute; z-index: 10; width: 751px; height: 533px; opacity: 0; }
+
+#wrapper .mask { width: 100%; height: 100%; position: absolute; top: 0px; left: 0px; z-index: 100; }
+
+#wrapper .closed { width: 757px; height: 530px; position: absolute; top: 112px; left: 115px; z-index: 1000; }
+#wrapper .open { width: 757px; height: 530px; position: absolute; top: 112px; left: 115px; z-index: 1000; opacity: 0; }
+
+#wrapper .string { width: 67px; height: 528px; position: absolute; top: 160px; right: 220px; z-index: 10000; }
+#wrapper .block { width: 67px; height: 100px; position: absolute; top: 121px; right: 203px; z-index: 10001; background: white; }
