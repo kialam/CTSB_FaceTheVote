@@ -72,13 +72,13 @@ var SmileTracker = function() {
                 
                 // finally ask the user to hold on smile for 3 seconds
                 // need 7+ for 3 seconds before the user can move on to the next section
-                if(superAvg > 6) {
+                if(superAvg > 7) {
                     heldSmileCount++;
                 } else {
                     heldSmileCount = 0;
                 }
                 
-                if(heldSmileCount > 30) {
+                if(heldSmileCount > 15) {
                     console.log('ready!');
                 }
                 
@@ -86,7 +86,7 @@ var SmileTracker = function() {
 //                if(count <= 500) {
 //                    console.log(superAvg)
 //                }
-//                console.log(superAvg)
+                console.log(superAvg)
             }
             
             count++;
