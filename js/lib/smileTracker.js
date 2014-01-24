@@ -69,6 +69,7 @@ var SmileTracker = function() {
         var er = ec.meanPredict(cp);
         if (er) {
             smileValue = er[3].value;
+            console.log(smileValue)
         }
         
         
