@@ -1,18 +1,19 @@
 var VideoSwitcher = {
-    videosClickHandler: function(event) {
+    currentVideoId: '',
+    videosClickHandler: function(e) {
+        
+        var self = this;
+        
         // prevent the default
-        if(event) {
-            event.preventDefault();
+        if(e) {
+            e.preventDefault();
         }
         
         // make a playlist
         var player;
-        var playerElem = $('.player')[0];
         
-        var videoId;
-        
-        player = new YT.Player(playerElem, {
-            height: '456',
+        player = new YT.Player($('.player')[0], {
+            height: '500',
             width: '810',
             playerVars: {
                 controls: 1
@@ -39,10 +40,10 @@ var VideoSwitcher = {
                 var data = event.target.getVideoData();
                 var index = event.target.getPlaylistIndex();
                 
-                if(data.video_id !== videoId) {
+                if(data.video_id !== self.currentVideoId) {
                     // we changed videos
-                    vid = data.video_id;
-                    console.log(videoId);
+                    self.currentVideoId = data.video_id;
+                    console.log(self.currentVideoId);
                     
                     // start the smiletracker
                     
@@ -86,10 +87,10 @@ var VideoSwitcher = {
     }
 };
 
-var Player = function(id) {
-    
-    
-    
-    
-
-};
+//var Player = function(id) {
+//    
+//    
+//    
+//    
+//
+//};

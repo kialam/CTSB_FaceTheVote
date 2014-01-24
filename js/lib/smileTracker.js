@@ -1,3 +1,7 @@
+/**
+ * TODO - figure out how to check once every XXms 
+ */
+
 var SmileTracker = function() {
     
     var ctrack = new clm.tracker({useWebGL : true});

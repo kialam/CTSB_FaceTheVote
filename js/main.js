@@ -1,44 +1,76 @@
-AudioSFX = function( _sound, _autoplay ) {
-    var self = this;
+//Dynamic Content Replace Script
+/* Transitions & Animations */
 
- 	this.file = _sound;
- 	this.autoplay = _autoplay;
+(function($) {
+    $(window).load(function() {
+        // smile tracker
+        vid = document.getElementById('videoel');
+        overlay = document.getElementById('overlay');
+        overlayCC = overlay.getContext('2d');
+        
+        // pages
+        intro = $('.intro');
+        permission = $('.permission');
+        watch = $('.watch');
+        results = $('.results');
+        how = $('.how');
+        
+        // intro button clicked
+        intro.find('.startButton').on('click', function(evt) {
+            evt.preventDefault();
+            hidePage(intro);
+            showPage(permission);
+            Webcam.webcamClickHandler(evt);
+        });
+        
+        // we got permission from the webcam
+        $(window).on('webcam_permission_received', function(evt) {
+            hidePage(permission);
+            showPage(watch);
+            VideoSwitcher.videosClickHandler(evt);
+        });
+        
+        $(window).on('smile_update', function(evt) {
+            // check the current video
+            var currentVideo = VideoSwitcher.currentVideoId;
+            
+            // add the update to the analytics array at the current id
+            if(currentVideo in analytics) {
+                analytics[currentVideo].push(evt.update);
+            } else {
+                analytics[currentVideo] = new Array();
+                analytics[currentVideo].push(evt.update);
+            }
+        });
+        
+    });
+})(jQuery);
 
-    this.sound;
- 
-    this.context = new webkitAudioContext();
- 
-    this.play = function() {
-        var source = self.context.createBufferSource();
-        source.buffer = self.sound;
-        source.connect( self.context.destination );
-        source.noteOn( 0 );
+$(window).load(function() {
+    if(window.location.hash) {
+        if(window.location.hash.search('videos')) {
+            hidePage(intro);
+            hidePage(permission);
+            hidePage(results);
+            hidePage(how);
+            showPage(watch);
+            VideoSwitcher.videosClickHandler();
+        }
     }
- 
-    this.load = function() {
-        var request = new XMLHttpRequest();
-        request.addEventListener( 'load', function(e) {
-            self.context.decodeAudioData( request.response, function(decoded_data) {
-                self.sound = decoded_data;
-                if( self.autoplay ) {
-                    self.play(0);
-                }
-            }, function(e){
-                console.log("error");
-            });
-        }, false);
-        request.open( 'GET', self.file , true );
-        request.responseType = "arraybuffer";
-        request.send();
-    }
- 
-    self.load();
-}
-
-function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-var sfx;
-$(document).ready(function() {
 });
+
+function showPage(elem) {
+    elem.removeClass('hidden').css({
+        opacity: 1
+    });
+}
+
+function hidePage(elem) {
+    elem.css({
+        opacity: 0
+    });
+
+    setTimeout(function() {
+        elem.addClass('hidden');
+    }, 1000);
+}

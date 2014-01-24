@@ -1,57 +1,9 @@
+/* MAIN */
 .container {
     width: 810px;
     height: 500px;
-    background-color: #000;
-    background-image: url('../images/bg.png');
-    background-repeat: no-repeat;
-    margin: 0 auto;
     position: relative;
-}
-
-.wrapper {
-    /*padding-top: 83px;*/
-    background-color: blue;
-    margin: 0 auto;
-    width: 545px;
-    /*height: 310px;*/
-}
-
-.align {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-.center {
-  /*background-color: blue;*/
-  width: 70%;
-  height: 70%;
-  overflow: auto;
-  margin: auto;
-  position: absolute;
-  top: 0; left: 0; bottom: 0; right: 0;
-}
-
-h1 {
-	text-transform: uppercase;
-	font-family: Helvetica, sans-serif;
-	/*background: -webkit-linear-gradient(#eee, #333);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;*/
-	/*background-image: url('../images/title.png');*/
-	/*background-repeat: no-repeat;*/
-	/*width: 212px;*/
-	/*height: 0;*/
-	/*padding: 31px 0 0 0;*/
-	/*color: red;*/
-	/*overflow: hidden;*/
-	text-align: center;
-}
-
-p {
-	color: #fff;
-	text-align: center;
+    background: #000 url(../images/bg.png) scroll no-repeat;
 }
 
 .page {
@@ -60,59 +12,44 @@ p {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 1;
-    display: block;
+    
+    -webkit-transition: opacity 500ms linear;
+    -moz-transition: opacity 500ms linear;
+    -o-transition: opacity 500ms linear;
+    transition: opacity 500ms linear;
 }
 
 .container .hidden {
+    display: none;
     opacity: 0;
-    z-index: -1;
 }
 
-.start {
-    
+/* START */
+
+.startTitle {
+    display: inline-block;
+    width: 221px;
+    height: 31px;
+    background: transparent url(../images/title.png) scroll no-repeat;
+    text-indent: -99999px;
 }
 
-.webcam {
-    
+.startButton {
+    display: inline-block;
+    width: 199px;
+    height: 62px;
+    background: transparent url(../images/watch.png) scroll no-repeat;
+    text-indent: -9999px;
+    border: none;
+    cursor: pointer;
 }
 
-.smile {
-    
-}
+/* WEBCAM */
 
-.nosmile {
-    
-}
-
-.videos {
-    
-}
-
-/*
- SMILE TRACKER
-*/
-#overlay {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        -o-transform : scaleX(-1);
-        -webkit-transform : scaleX(-1);
-        transform : scaleX(-1);
-        -ms-filter : fliph; /*IE*/
-        filter : fliph; /*IE*/
-
-        width : 600px;
-        height : 450px;
-}
-
-#videoel {
-        -o-transform : scaleX(-1);
-        -webkit-transform : scaleX(-1);
-        transform : scaleX(-1);
-        -ms-filter : fliph; /*IE*/
-        filter : fliph; /*IE*/
-
-        width : 600px;
-        height : 450px;
+.webcamTitle {
+    display: inline-block;
+    width: 434px;
+    height: 72px;
+    background: transparent url(../images/letwebcam.png) scroll no-repeat;
+    text-indent: -99999px;
 }

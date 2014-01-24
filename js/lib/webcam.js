@@ -23,8 +23,8 @@ var Webcam = {
 
                 // if we got a video
                 function( stream ) {
-                    webcam.addClass('hidden');
-                    smile.removeClass('hidden');
+//                    webcam.addClass('hidden');
+//                    smile.removeClass('hidden');
 
                     if (vid.mozCaptureStream) {
                         vid.mozSrcObject = stream;
@@ -33,6 +33,12 @@ var Webcam = {
                     }
 
                     vid.play();
+                    
+                    // trigger the next phase
+                    $(window).trigger({
+                        type: 'webcam_permission_received',
+                        evt: event
+                    });
 
                 // if we didnt get a video
                 }, function() {
@@ -54,8 +60,8 @@ var Webcam = {
         // start the smile training because our webcam is enabled
         vid.addEventListener('canplay', function() {
             // start the smile tracker
-            var st = new SmileTracker();
-            st.startVideo();
+//            var st = new SmileTracker();
+//            st.startVideo();
         }, false);
     },
     showAccessDenied: function() {
