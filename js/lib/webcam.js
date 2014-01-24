@@ -10,7 +10,15 @@ var Webcam = {
         // check for camerasupport
         if (navigator.getUserMedia) {
             // set up stream
-            var videoSelector = {video : true};
+            // 640x360
+            var videoSelector = {
+                video : {
+                    mandatory: {
+                        maxWidth: 640,
+                        maxHeight: 360
+                    }
+                }
+            };
 
             // check for chrome version
             if (window.navigator.appVersion.match(/Chrome\/(.*?) /)) {
@@ -34,6 +42,7 @@ var Webcam = {
                         vid.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
                     }
 
+                    // only play one of these video elements
 //                    vid.play();
                     
                     // trigger the next phase

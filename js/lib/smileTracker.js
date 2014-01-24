@@ -17,17 +17,18 @@ var SmileTracker = function() {
     
     var paused = false;
     var drawing = false;
-//    
-//    var lastSmiles = new Array();
-//    var averages = new Array();
-//    
-//    var heldSmileCount = 0;
+    var throttling = false;
     
+    var framesToSkip = 5,
+        counter = 0;
+
     this.start = function() {
         // set paused = false
         paused = false;
+        
         // start video
         vid.play();
+            
         // start tracking
         ctrack.start(vid);
         // start loop to draw face
@@ -36,7 +37,9 @@ var SmileTracker = function() {
     
     this.pause = function() {
         paused = true;
+        
         vid.pause();
+        
         ctrack.stop();
     };
     
@@ -50,10 +53,18 @@ var SmileTracker = function() {
     
     function drawLoop() {
         
+        // to throttle the counter
+        if (counter < framesToSkip && throttling) {
+            counter++;
+            requestAnimationFrame(drawLoop);
+            return;
+        }
+        
         var p = paused;
         var d = drawing;
         
         if(!p) {
+            counter = 0;
             requestAnimFrame(drawLoop);
         }
         
