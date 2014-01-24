@@ -1,3 +1,21 @@
+/* FONTS */
+@import url("//hello.myfonts.net/count/29b208");
+
+  
+@font-face {font-family: 'TradeGothicLTPro-Cn18';src: url('webfonts/29B208_0_0.eot');src: url('webfonts/29B208_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/29B208_0_0.woff') format('woff'),url('webfonts/29B208_0_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'TradeGothicLTPro-Cn18Obl';src: url('webfonts/29B208_1_0.eot');src: url('webfonts/29B208_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/29B208_1_0.woff') format('woff'),url('webfonts/29B208_1_0.ttf') format('truetype');}
+ 
+  
+@font-face {font-family: 'TradeGothicLTPro-BdCn20Obl';src: url('webfonts/29B208_2_0.eot');src: url('webfonts/29B208_2_0.eot?#iefix') format('embedded-opentype'),url('webfonts/29B208_2_0.woff') format('woff'),url('webfonts/29B208_2_0.ttf') format('truetype');}
+ 
+p {
+    font-family: 'TradeGothicLTPro-Cn18Obl' sans-serif;
+    color: #fff;
+}
+
+
 /* MAIN */
 .container {
     width: 810px;
@@ -25,12 +43,8 @@
     opacity: 0;
 }
 
-p {
-/*    https://www.doritos.com/css/webfonts/2613D6_0_0.woff
-        https://www.doritos.com/css/webfonts/2613D6_1_0.woff*/
-    font-family: 
-    text-align: center;
-}
+
+
 
 /* START */
 
