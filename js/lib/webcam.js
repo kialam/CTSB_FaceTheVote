@@ -34,7 +34,7 @@ var Webcam = {
                         vid.src = (window.URL && window.URL.createObjectURL(stream)) || stream;
                     }
 
-                    vid.play();
+//                    vid.play();
                     
                     // trigger the next phase
                     $(window).trigger({

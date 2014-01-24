@@ -1,21 +1,3 @@
-/* FONTS */
-@import url("//hello.myfonts.net/count/29b208");
-
-  
-@font-face {font-family: 'TradeGothicLTPro-Cn18';src: url('webfonts/29B208_0_0.eot');src: url('webfonts/29B208_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/29B208_0_0.woff') format('woff'),url('webfonts/29B208_0_0.ttf') format('truetype');}
- 
-  
-@font-face {font-family: 'TradeGothicLTPro-Cn18Obl';src: url('webfonts/29B208_1_0.eot');src: url('webfonts/29B208_1_0.eot?#iefix') format('embedded-opentype'),url('webfonts/29B208_1_0.woff') format('woff'),url('webfonts/29B208_1_0.ttf') format('truetype');}
- 
-  
-@font-face {font-family: 'TradeGothicLTPro-BdCn20Obl';src: url('webfonts/29B208_2_0.eot');src: url('webfonts/29B208_2_0.eot?#iefix') format('embedded-opentype'),url('webfonts/29B208_2_0.woff') format('woff'),url('webfonts/29B208_2_0.ttf') format('truetype');}
- 
-p {
-    font-family: 'TradeGothicLTPro-Cn18Obl' sans-serif;
-    color: #fff;
-}
-
-
 /* MAIN */
 .container {
     width: 810px;
@@ -43,14 +25,9 @@ p {
     opacity: 0;
 }
 
-<<<<<<< HEAD
-
-
-=======
 p {
     text-align: center;
 }
->>>>>>> 0057ec9f69c3766df54e262ccfe2547517bd6603
 
 /* START */
 
