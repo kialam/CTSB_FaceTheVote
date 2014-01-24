@@ -24,32 +24,70 @@
     opacity: 0;
 }
 
+p {
+    text-align: center;
+}
+
 /* START */
 
 .startTitle {
     display: inline-block;
-    width: 221px;
-    height: 31px;
+    width: 216px;
+    height: 35px;
     background: transparent url(../images/title.png) scroll no-repeat;
     text-indent: -99999px;
+    margin: 84px 0 0 301px;
+}
+
+.intro p {
+    margin: 60px 134px  0 134px;
 }
 
 .startButton {
     display: inline-block;
-    width: 199px;
-    height: 62px;
+    width: 224px;
+    height: 86px;
     background: transparent url(../images/watch.png) scroll no-repeat;
     text-indent: -9999px;
     border: none;
     cursor: pointer;
+    margin: 60px 293px 0 293px;
 }
 
-/* WEBCAM */
+/* PERMISSION */
 
 .webcamTitle {
     display: inline-block;
-    width: 434px;
-    height: 72px;
+    width: 438px;
+    height: 76px;
     background: transparent url(../images/letwebcam.png) scroll no-repeat;
     text-indent: -99999px;
+    margin: 135px 188px 0 188px;
+}
+
+.permission p {
+    margin: 50px 143px 0 143px;
+}
+
+/* RESULTS */
+
+.resultsTitle {
+    display: inline-block;
+    width: 414px;
+    height: 68px;
+    background: transparent url(../images/winner.png) scroll no-repeat;
+    text-indent: -99999px;
+    margin: 136px 197px 0 197px;
+}
+
+/* HOW */
+
+.howButton {
+    display: inline-block;
+    width: 191px;
+    height: 65px;
+    background: transparent url(../images/howButton.png) scroll no-repeat;
+    text-indent: -9999px;
+    border: none;
+    cursor: pointer;
 }

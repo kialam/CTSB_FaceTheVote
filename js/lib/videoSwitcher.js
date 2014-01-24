@@ -1,6 +1,6 @@
 var VideoSwitcher = {
     currentVideoId: '',
-    videosClickHandler: function(e) {
+    init: function(e) {
         
         var self = this;
         
@@ -44,24 +44,32 @@ var VideoSwitcher = {
                     // we changed videos
                     self.currentVideoId = data.video_id;
                     console.log(self.currentVideoId);
-                    
-                    // start the smiletracker
-                    
                 }
+                
+                // start the smiletracker
+                $(window).trigger({
+                    type: 'videos_playing',
+                    evt: event
+                });
                 
             }
             
             if(event.data == YT.PlayerState.ENDED) {
                 console.log('ended')
-                // should only get this when all the commercials are done playing
                 
                 // show stats
+                $(window).trigger({
+                    type: 'videos_ended'
+                });
                 
             }
             
             if(event.data == YT.PlayerState.PAUSED) {
                 console.log('paused')
                 // the user can do this at any point
+                $(window).trigger({
+                    type: 'videos_paused'
+                });
             }
             
             if(event.data == YT.PlayerState.BUFFERING) {

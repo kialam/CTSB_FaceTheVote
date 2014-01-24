@@ -1,9 +1,11 @@
 var Webcam = {
-    webcamClickHandler: function(event) {
+    startWebcam: function(event) {
         // define scope
         var self = this;
         
-        event.preventDefault();
+        if(event) {
+            event.preventDefault();
+        }
         
         // check for camerasupport
         if (navigator.getUserMedia) {
