@@ -4,6 +4,7 @@
     height: 500px;
     position: relative;
     background: #000 url(../images/bg.png) scroll no-repeat;
+    overflow: hidden;
 }
 
 .page {
@@ -78,6 +79,29 @@ p {
     background: transparent url(../images/winner.png) scroll no-repeat;
     text-indent: -99999px;
     margin: 136px 197px 0 197px;
+}
+
+.resultsVideos {
+    margin-top: 121px;
+    width: 810px;
+    overflow: hidden;
+}
+
+.resultsVideos ul {
+    width: 813px;
+    height: 96px;
+    
+    -moz-box-shadow:    0px 6px 5px 6px #000;
+    -webkit-box-shadow: 0px 6px 5px 6px #000;
+    box-shadow:         0px 6px 5px 6px #000;
+}
+
+.resultsVideos ul li {
+    float: left;
+}
+
+.howButton {
+    margin: 5px 0 0 314px;
 }
 
 /* HOW */

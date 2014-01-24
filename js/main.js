@@ -113,7 +113,8 @@
                 hidePage(how);
                 showPage(results);
 
-
+                var thumbs = ranking.getRankingOrderHTML();
+                results.find('.resultsVideos ul').html(thumbs);
             }
 
             if(window.location.hash.search('how') !== -1) {
