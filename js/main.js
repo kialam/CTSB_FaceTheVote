@@ -83,18 +83,18 @@
             smileTracker.start();
         });
         
-        
-        $(document).on('clmtrackrNotFound', function(evt) {
-            console.log('no face')
-            VideoSwitcher.pause();
-        });
-        // ???
-        $(document).on('clmtrackrLost', function(evt) {
-            console.log('no face')
-            VideoSwitcher.pause();
-        });
-        
-        // TODO - find out how to play the video once we find the face
+        // no face!
+//        $(document).on('clmtrackrNotFound', function(evt) {
+//            console.log('no face')
+//            VideoSwitcher.pause();
+//        });
+//        // ???
+//        $(document).on('clmtrackrLost', function(evt) {
+//            console.log('no face')
+//            VideoSwitcher.pause();
+//        });
+//        
+//        // TODO - find out how to play the video once we find the face
         
         
         // fragments
