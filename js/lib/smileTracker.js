@@ -31,6 +31,7 @@ var SmileTracker = function() {
             
         // start tracking
         ctrack.start(vid);
+        
         // start loop to draw face
         drawLoop();
     };
@@ -76,11 +77,10 @@ var SmileTracker = function() {
         }
 
         var cp = ctrack.getCurrentParameters();
-
+        
         var er = ec.meanPredict(cp);
         if (er) {
             smileValue = er[3].value;
-            console.log(smileValue)
         }
         
         

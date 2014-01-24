@@ -11,6 +11,7 @@ var Webcam = {
         if (navigator.getUserMedia) {
             // set up stream
             // 640x360
+            // 1920X1080
             var videoSelector = {
                 video : {
                     mandatory: {
