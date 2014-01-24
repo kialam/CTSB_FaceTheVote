@@ -13,6 +13,7 @@
 p {
     font-family: 'TradeGothicLTPro-Cn18Obl' sans-serif;
     color: #fff;
+    text-align: center;
 }
 
 
@@ -43,9 +44,6 @@ p {
     opacity: 0;
 }
 
-p {
-    text-align: center;
-}
 
 /* START */
 
