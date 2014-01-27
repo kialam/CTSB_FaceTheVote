@@ -1,4 +1,9 @@
 var Webcam = {
+    stopWebcam: function(){
+        // stop webcam
+        // stream.stop();
+        this.stream.stop();
+    },
     startWebcam: function(event) {
         // define scope
         var self = this;
@@ -34,6 +39,9 @@ var Webcam = {
 
                 // if we got a video
                 function( stream ) {
+
+                    //Webcam.cam.stream = stream;
+                    self.stream = stream;
 //                    webcam.addClass('hidden');
 //                    smile.removeClass('hidden');
 
