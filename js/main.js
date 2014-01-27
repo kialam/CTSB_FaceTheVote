@@ -103,22 +103,22 @@
         });
         
         // ostrich hover
-        $('li.ostrichThumb img').hover (
-            function() {
+        $('.resultsVideos').on ('mouseover', '.ostrichThumb img', function() {
                 hidePage(officeStats, true);
                 hidePage(fingerStats, true);
                 hidePage(timeStats, true);
                 hidePage(cowboyStats, true);
                 hidePage(winner, true);
                 showPage(ostrichStats);
-                 },
-            function() {
+                console.log('fired');
+                 }
+            // function() {
                 // hidePage(ostrichStats);
-            }
+            // }
         );
         
         // Hover Stats
-        $('li.officeThumb img').hover (
+        $('li.officeThumb').hover (
             function() {
                 hidePage(ostrichStats, true);
                 hidePage(fingerStats, true);
@@ -132,7 +132,7 @@
             }
             );
 
-        $('li.fingerThumb img').hover (
+        $('li.fingerThumb').hover (
             function() {
                 hidePage(officeStats, true);
                 hidePage(timeStats, true);
@@ -146,7 +146,7 @@
             }
         );
 
-        $('li.timeThumb img').hover (
+        $('li.timeThumb').hover (
             function() {
                 hidePage(officeStats, true);
                 hidePage(fingerStats, true);
@@ -160,7 +160,7 @@
             }
         );
 
-        $('li.cowboyThumb img').hover (
+        $('li.cowboyThumb').hover (
             function() {
                 hidePage(officeStats, true);
                 hidePage(fingerStats, true);
