@@ -134,12 +134,41 @@ p {
     float: left;
 }
 
-.ostrichStats, .officeStats, .fingerStats, .timeStats, .cowboyStats {
+.stats {
     width: 810px;
     height: 245px;
+    position: relative;
+}
+
+.winner, .ostrichStats, .officeStats, .fingerStats, .timeStats, .cowboyStats {
+    width: 810px;
+    height: 244px;
     position: absolute;
     top: 0;
+    left: 0;
     background: rgba(50, 50, 50, .95);
+     -webkit-transition: opacity 50ms linear;
+    -moz-transition: opacity 50ms linear;
+    -o-transition: opacity 50ms linear;
+    transition: opacity 50ms linear;
+}
+
+.voteFinger {
+    width: 385px;
+    height: 216px;
+    display: inline-block;
+    background: transparent url(../images/vote_finger.png) scroll no-repeat;
+    text-indent: -9999px;
+}
+
+.fingerGraph {
+    width: 297px;
+    height: 199px;
+    display: inline-block;
+    background: transparent url(../images/finger_stats.png) scroll no-repeat;
+    text-indent: -9999px;
+    margin: 6px 0 0 60px;
+
 }
 
 .voteButton {
@@ -151,6 +180,7 @@ p {
     outline: none;
     border: none;
     cursor: pointer;
+    margin: 205px 0 0 630px;
 }
 .howButton {
     margin: 100px 0 0 314px;

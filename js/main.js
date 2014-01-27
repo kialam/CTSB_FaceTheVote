@@ -28,6 +28,9 @@
         fingerStats = $('.fingerStats');
         timeStats = $('.timeStats');
         cowboyStats = $('.cowboyStats');
+        winner = $('.winner');
+        
+        
         
         // intro button clicked
         intro.find('.startButton').on('click', function(evt) {
@@ -102,6 +105,11 @@
         // ostrich hover
         $('li.ostrichThumb img').hover (
             function() {
+                hidePage(officeStats, true);
+                hidePage(fingerStats, true);
+                hidePage(timeStats, true);
+                hidePage(cowboyStats, true);
+                hidePage(winner, true);
                 showPage(ostrichStats);
                  },
             function() {
@@ -112,6 +120,11 @@
         // Hover Stats
         $('li.officeThumb img').hover (
             function() {
+                hidePage(ostrichStats, true);
+                hidePage(fingerStats, true);
+                hidePage(timeStats, true);
+                hidePage(cowboyStats, true);
+                hidePage(winner, true);
                 showPage(officeStats);
             },
             function() {
@@ -121,27 +134,42 @@
 
         $('li.fingerThumb img').hover (
             function() {
+                hidePage(officeStats, true);
+                hidePage(timeStats, true);
+                hidePage(cowboyStats, true);
+                hidePage(winner, true);
+                hidePage(ostrichStats, true);
                 showPage(fingerStats);
             }, 
             function() {
-                hidePage(fingerStats);
+                // hidePage(fingerStats);
             }
         );
 
         $('li.timeThumb img').hover (
             function() {
+                hidePage(officeStats, true);
+                hidePage(fingerStats, true);
+                hidePage(cowboyStats, true);
+                hidePage(winner, true);
+                hidePage(ostrichStats, true);
                 showPage(timeStats);
             }, 
             function() {
-                hidePage(timeStats);
+                // hidePage(timeStats);
             }
         );
 
         $('li.cowboyThumb img').hover (
             function() {
+                hidePage(officeStats, true);
+                hidePage(fingerStats, true);
+                hidePage(timeStats, true);
+                hidePage(winner, true);
+                hidePage(ostrichStats, true);
                 showPage(cowboyStats);}, 
             function() {
-                hidePage(cowboyStats);
+                // hidePage(cowboyStats);
             }
         );
  
@@ -213,14 +241,21 @@ function showPage(elem) {
     });
 }
 
-function hidePage(elem) {
+function hidePage(elem, instant) {
+    instant = instant || false
+
     elem.css({
         opacity: 0
     });
 
-    setTimeout(function() {
+    if(instant) {
         elem.addClass('hidden');
-    }, 1000);
+    }
+    else{
+        setTimeout(function() {
+        elem.addClass('hidden');
+        }, 1000);
+    }
 }
 
 function voteThisMoment(cid, callback) {
