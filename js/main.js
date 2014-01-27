@@ -23,7 +23,8 @@
         results = $('.results');
         how = $('.how');
         destinationPage = 'intro';
-        ostrich = $('.ostrich');
+        ostrichStats = $('.ostrichStats');
+        officeStats = $('.officeStats');
         
         // intro button clicked
         intro.find('.startButton').on('click', function(evt) {
@@ -87,11 +88,23 @@
         });
         
         // ostrich clicked
-        results.find('#ostrich').on('click', function(evt) {
+        results.find('li.ostrichThumb img').on('click', function(evt) {
             evt.preventDefault();
-            destinationPage = 'ostrich';
-            hidePage(results);
-            showPage(ostrich);
+            destinationPage = 'ostrichStats';
+            // hidePage(results);
+            showPage(ostrichStats);
+            
+            // start the smile tracker and draw this time
+            // smileTracker.setDrawing(true);
+            // smileTracker.start();
+        });
+        
+        // office clicked
+        results.find('li.officeThumb img').on('click', function(evt) {
+            evt.preventDefault();
+            destinationPage = 'officeStats';
+            // hidePage(results);
+            showPage(officeStats);
             
             // start the smile tracker and draw this time
             // smileTracker.setDrawing(true);

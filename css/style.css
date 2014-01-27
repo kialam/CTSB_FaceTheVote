@@ -121,6 +121,14 @@ p {
     float: left;
 }
 
+.ostrichStats, .officeStats, .fingerStats, .timeStats, .cowboyStats {
+    width: 810px;
+    height: 245px;
+    position: absolute;
+    top: 0;
+    background: rgba(50, 50, 50, .95);
+}
+
 .howButton {
     margin: 100px 0 0 314px;
 }
