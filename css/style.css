@@ -16,8 +16,8 @@ p {
     text-align: center;
     font-size: 22px;
     line-height: 100%;
-    word-spacing: normal;
-    font-kerning: normal;
+    word-spacing: 2px;
+    /*font-kerning: normal;*/
 }
 
 
@@ -76,6 +76,18 @@ p {
     margin: 60px 293px 0 293px;
 }
 
+.disclaimer {
+    font-size: 11px;
+    word-spacing: 1px;
+}
+
+.disclaimer a {
+    color: #fff;
+}
+
+.disclaimer a:hover {
+    color: red;
+}
 /* PERMISSION */
 
 .webcamTitle {
@@ -84,12 +96,13 @@ p {
     height: 76px;
     background: transparent url(../images/letwebcam.png) scroll no-repeat;
     text-indent: -99999px;
-    margin: 135px 188px 0 188px;
+    margin: 80px 188px 0 188px;
 }
 
 .permission p {
     margin: 50px 143px 0 143px;
 }
+
 
 /* RESULTS */
 
@@ -121,6 +134,24 @@ p {
     float: left;
 }
 
+.ostrichStats, .officeStats, .fingerStats, .timeStats, .cowboyStats {
+    width: 810px;
+    height: 245px;
+    position: absolute;
+    top: 0;
+    background: rgba(50, 50, 50, .95);
+}
+
+.voteButton {
+    width: 183px;
+    height: 60px;
+    display: inline-block;
+    background: transparent url(../images/vote.png) scroll no-repeat;
+    text-indent: -9999px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
 .howButton {
     margin: 100px 0 0 314px;
 }

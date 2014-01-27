@@ -23,7 +23,11 @@
         results = $('.results');
         how = $('.how');
         destinationPage = 'intro';
-        ostrich = $('.ostrich');
+        ostrichStats = $('.ostrichStats');
+        officeStats = $('.officeStats');
+        fingerStats = $('.fingerStats');
+        timeStats = $('.timeStats');
+        cowboyStats = $('.cowboyStats');
         
         // intro button clicked
         intro.find('.startButton').on('click', function(evt) {
@@ -95,17 +99,52 @@
             smileTracker.start();
         });
         
-        // ostrich clicked
-        results.find('#ostrich').on('click', function(evt) {
-            evt.preventDefault();
-            destinationPage = 'ostrich';
-            hidePage(results);
-            showPage(ostrich);
-            
-            // start the smile tracker and draw this time
-            // smileTracker.setDrawing(true);
-            // smileTracker.start();
-        });
+        // ostrich hover
+        $('li.ostrichThumb img').hover (
+            function() {
+                showPage(ostrichStats);
+                 },
+            function() {
+                // hidePage(ostrichStats);
+            }
+        );
+        
+        // Hover Stats
+        $('li.officeThumb img').hover (
+            function() {
+                showPage(officeStats);
+            },
+            function() {
+                // hidePage(officeStats);
+            }
+            );
+
+        $('li.fingerThumb img').hover (
+            function() {
+                showPage(fingerStats);
+            }, 
+            function() {
+                hidePage(fingerStats);
+            }
+        );
+
+        $('li.timeThumb img').hover (
+            function() {
+                showPage(timeStats);
+            }, 
+            function() {
+                hidePage(timeStats);
+            }
+        );
+
+        $('li.cowboyThumb img').hover (
+            function() {
+                showPage(cowboyStats);}, 
+            function() {
+                hidePage(cowboyStats);
+            }
+        );
+ 
         
 
         // fragments
