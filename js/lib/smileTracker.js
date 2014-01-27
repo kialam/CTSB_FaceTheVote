@@ -1,6 +1,8 @@
 /**
  * TODO - handle no face
  * TODO - handle face lost
+ * TODO figure out another way to handle face lost events since it still bogs - check to make sure the tracker is actually pausing
+ * 
  */
 
 var SmileTracker = function() {
