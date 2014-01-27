@@ -14,6 +14,10 @@ p {
     font-family: 'TradeGothicLTPro-Cn18Obl' sans-serif;
     color: #fff;
     text-align: center;
+    font-size: 22px;
+    line-height: 100%;
+    word-spacing: normal;
+    font-kerning: normal;
 }
 
 
@@ -67,6 +71,7 @@ p {
     background: transparent url(../images/watch.png) scroll no-repeat;
     text-indent: -9999px;
     border: none;
+    outline: none;
     cursor: pointer;
     margin: 60px 293px 0 293px;
 }
@@ -116,8 +121,18 @@ p {
     float: left;
 }
 
+.ostrich, .office, .finger, .time, .cowboy {
+    height: 400px;
+    width: 810px;
+    overflow: hidden;
+}
+
+.ostrich {
+    background-color: #fff;
+}
+
 .howButton {
-    margin: 5px 0 0 314px;
+    margin: 100px 0 0 314px;
 }
 
 /* HOW */
@@ -129,5 +144,6 @@ p {
     background: transparent url(../images/howButton.png) scroll no-repeat;
     text-indent: -9999px;
     border: none;
+    outline: none;
     cursor: pointer;
 }
