@@ -13,7 +13,8 @@ var Ranking = function(data) {
             class: 'officeThumb',
             data: new Array(),
             contentId: '14400',
-            order: 0
+            width: 156
+//            order: 0
         },
         {
             name: 'Ostrich Thief',
@@ -22,7 +23,8 @@ var Ranking = function(data) {
             class: 'ostrichThumb',
             data: new Array(),
             contentId: '14399',
-            order: 0
+            width: 166
+//            order: 0
             
         },
         {
@@ -32,7 +34,8 @@ var Ranking = function(data) {
             class: 'fingerThumb',
             data: new Array(),
             contentId: '14398',
-            order: 0
+            width: 164
+//            order: 0
         },
         {
             name: 'Time Machine',
@@ -41,7 +44,8 @@ var Ranking = function(data) {
             class: 'timeThumb',
             data: new Array(),
             contentId: '14397',
-            order: 0
+            width: 163
+//            order: 0
         },
         {
             name: 'Cowboy Kid',
@@ -50,7 +54,8 @@ var Ranking = function(data) {
             class: 'cowboyThumb',
             data: new Array(),
             contentId: '14396',
-            order: 0
+            width: 164
+//            order: 0
         }
     ];
     
@@ -61,7 +66,7 @@ var Ranking = function(data) {
             if(key.search(videos[i].id) !== -1) {
                 // we found the correct key
                 videos[i].data = data[key];
-                videos[i].order = count;
+//                videos[i].order = count;
                 count++;
             }
         }
@@ -103,6 +108,44 @@ var Ranking = function(data) {
                         '<a href="#"><img src="images/'+video.thumb+'" /></a>' +
                     '</li>';
         return html;
+    }
+    
+    
+    // TODO - this needs to convert the points to pixels for the graph
+    this.drawThumbGraph = function(elem) {
+        var canvas = elem,
+            ctx = canvas.getContext("2d"),
+            w = canvas.width,
+            h = canvas.height;
+    
+        var order = VideoSwitcher.getOrder();
+        
+        ctx.beginPath();
+    
+        var prevY = 0;
+        var x = 0;
+        for(var t = 0, l = order.length; t < l; t++) {
+            for(var i = 0; i < videos.length; i++) {
+                if(videos[i].id.search(order[t]) !== -1) {
+                    
+                    for(var c = 0; c < videos[i].data.length; c++) {
+                        
+                        ctx.moveTo(x, prevY);
+                        ctx.lineTo(x + 1, (-1 * (videos[i].data[c] * 10)));
+                        ctx.strokeStyle = "red";
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                        
+                        prevY = videos[i].data[c];
+                        x++;
+                    }
+                        
+                }
+            }
+        }
+        
+        ctx.closePath();
+        
     }
     
     // DEPRECATED 1.26.14

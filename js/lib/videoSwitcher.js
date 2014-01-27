@@ -35,6 +35,14 @@ var VideoSwitcher = {
                 // we changed videos
                 currentVideo = data.video_id;
                 console.log(self.currentVideoId);
+                self.currentVideoId = data.video_id;
+                
+                // trigger an even that smileTracker can subscribe to
+                $(window).trigger({
+                    type: 'video_changed',
+                    from: self.currentVideoId,
+                    to: data.video_id
+                });
             }
 
             // start the smiletracker
@@ -80,7 +88,7 @@ var VideoSwitcher = {
             shufflePlaylist: true
         });
         event.target.playVideoAt(0);
-        playlistOrder = event.target.getPlaylist();
+//        playlistOrder = event.target.getPlaylist();
     },
     
     shuffle: function(o) {

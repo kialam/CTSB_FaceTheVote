@@ -11,7 +11,7 @@
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
         window.URL = window.URL || window.webkitURL || window.msURL || window.mozURL;
 
-        var intro, permission, watch, results, how, destinationPage, vid, overlay, overlayCC, analytics, smileTracker, currentVideo, playlistOrder;
+        var intro, permission, watch, results, how, destinationPage, vid, overlay, overlayCC, analytics, smileTracker, currentVideo, smileTrackingLost;
         
     </script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -79,7 +79,14 @@
                       </li>
                   </ul>
               </div>
+<<<<<<< HEAD
              <div class="ostrichStats hidden" data-pageName="ostrichStats">
+=======
+              <div class="thumbGraph">
+                  <canvas class="thumbGraphCanvas" width="810" height="200"></canvas>
+              </div>
+              <div class="ostrich hidden">
+>>>>>>> fefda01619ff211a13bbd86a03dc86a1bb0e8cc8
                 <p>Test</p>
               </div>
               <div class="officeStats hidden">
