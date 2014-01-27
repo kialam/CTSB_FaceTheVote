@@ -121,16 +121,6 @@ p {
     float: left;
 }
 
-.ostrich, .office, .finger, .time, .cowboy {
-    height: 400px;
-    width: 810px;
-    overflow: hidden;
-}
-
-.ostrich {
-    background-color: #fff;
-}
-
 .howButton {
     margin: 100px 0 0 314px;
 }
