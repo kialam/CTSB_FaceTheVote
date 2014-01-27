@@ -77,20 +77,22 @@ var Ranking = function(data) {
     
     this.getVideosHTML = function() {
         var html = '';
-        var ordered = new Array();
-        
-        // sort by order
-        for(var i = 0, l = videos.length; i < l; i++) {
-            ordered[parseInt(videos[i].order)] = videos[i];
-        }
+        var order = VideoSwitcher.getOrder();
         
         // output html
-        for(var t = 0, l = ordered.length; t < l; t++) {
-            var video = findVideo(ordered[t].id);
+        for(var t = 0, l = order.length; t < l; t++) {
             
-            html = html +   '<li class="'+video.class+'" data-vid="'+video.id+'" data-cid="'+video.contentId+'">' +
-                                '<a href="#"><img src="images/'+video.thumb+'" /></a>' +
-                            '</li>';
+            for(var i = 0; i < l; i++) {
+                if(videos[i].id.search(order[t]) !== -1) {
+                    // we found the matching videos
+                    var video = findVideo(videos[i].id);
+                    
+                    html = html +   '<li class="'+video.class+'" data-vid="'+video.id+'" data-cid="'+video.contentId+'">' +
+                                        '<a href="#"><img src="images/'+video.thumb+'" /></a>' +
+                                    '</li>';
+                }
+            }
+            
         }
         return html;
     };

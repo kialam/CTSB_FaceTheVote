@@ -80,6 +80,7 @@ var VideoSwitcher = {
             shufflePlaylist: true
         });
         event.target.playVideoAt(0);
+        playlistOrder = event.target.getPlaylist();
     },
     
     shuffle: function(o) {
@@ -91,6 +92,9 @@ var VideoSwitcher = {
     },
     play: function() {
         this.player.playVideo();
+    },
+    getOrder: function() {
+        return this.player.getPlaylist();
     }
 };
 
