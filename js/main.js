@@ -23,6 +23,7 @@
         results = $('.results');
         how = $('.how');
         destinationPage = 'intro';
+        ostrich = $('.ostrich');
         
         // intro button clicked
         intro.find('.startButton').on('click', function(evt) {
@@ -85,6 +86,19 @@
             smileTracker.start();
         });
         
+        // ostrich clicked
+        results.find('#ostrich').on('click', function(evt) {
+            evt.preventDefault();
+            destinationPage = 'ostrich';
+            hidePage(results);
+            showPage(ostrich);
+            
+            // start the smile tracker and draw this time
+            // smileTracker.setDrawing(true);
+            // smileTracker.start();
+        });
+        
+
         // fragments
         if(window.location.hash) {
 

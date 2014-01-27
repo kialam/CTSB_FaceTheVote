@@ -10,7 +10,7 @@ var Ranking = function(data) {
             name: 'Office Thief',
             thumb: 'office-thumb.png',
             id: 'oMdwJ7fyp00',
-            class: 'office',
+            class: 'officeThumb',
             data: new Array(),
             contentId: '14400',
             order: 0
@@ -19,7 +19,7 @@ var Ranking = function(data) {
             name: 'Ostrich Thief',
             thumb: 'ostrich-thumb.png',
             id: 'MoANeCLWOjI',
-            class: 'ostrich',
+            class: 'ostrichThumb',
             data: new Array(),
             contentId: '14399',
             order: 0
@@ -29,7 +29,7 @@ var Ranking = function(data) {
             name: 'Finger Cleaner',
             thumb: 'finger-thumb.png',
             id: 'ugo7Y2lRsxc',
-            class: 'finger',
+            class: 'fingerThumb',
             data: new Array(),
             contentId: '14398',
             order: 0
@@ -38,7 +38,7 @@ var Ranking = function(data) {
             name: 'Time Machine',
             thumb: 'time-thumb.png',
             id: 'Y-P0Hs0ADJY',
-            class: 'time',
+            class: 'timeThumb',
             data: new Array(),
             contentId: '14397',
             order: 0
@@ -47,7 +47,7 @@ var Ranking = function(data) {
             name: 'Cowboy Kid',
             thumb: 'cowboy-thumb.png',
             id: 'FHY5pwgCY3w',
-            class: 'cowboy',
+            class: 'cowboyThumb',
             data: new Array(),
             contentId: '14396',
             order: 0
@@ -77,32 +77,43 @@ var Ranking = function(data) {
     
     this.getVideosHTML = function() {
         var html = '';
-        var ordered = new Array();
+        var order = VideoSwitcher.getOrder();
         
-        // sort by order
-        for(var i = 0, l = videos.length; i < l; i++) {
-            ordered[parseInt(videos[i].order)] = videos[i];
+        if(order.length !== 5) {
+            // dont replace any of the html and just return the default
+            for(var d = 0; d < videos.length; d++) {
+                html = html + generateVideoHTML(videos[d]);
+            }
+        } else {
+            // output html
+            for(var t = 0, l = order.length; t < l; t++) {
+                for(var i = 0; i < l; i++) {
+                    if(videos[i].id.search(order[t]) !== -1) {
+                        html = html +  generateVideoHTML(videos[i]);
+                    }
+                }
+            }
         }
         
-        // output html
-        for(var t = 0, l = ordered.length; t < l; t++) {
-            var video = findVideo(ordered[t].id);
-            
-            html = html +   '<li class="'+video.class+'" data-vid="'+video.id+'" data-cid="'+video.contentId+'">' +
-                                '<a href="#"><img src="images/'+video.thumb+'" /></a>' +
-                            '</li>';
-        }
         return html;
     };
     
-    function findVideo(videoId) {
-        for(var i = 0; i < videos.length; i++) {
-            if(videos[i].id.search(videoId) !== -1) {
-                // return that video index
-                return videos[i];
-            }
-        }
-        return false;
+    function generateVideoHTML(video) {
+        var html =  '<li class="'+video.class+'" data-vid="'+video.id+'" data-cid="'+video.contentId+'">' +
+                        '<a href="#"><img src="images/'+video.thumb+'" /></a>' +
+                    '</li>';
+        return html;
     }
+    
+    // DEPRECATED 1.26.14
+//    function findVideo(videoId) {
+//        for(var i = 0; i < videos.length; i++) {
+//            if(videos[i].id.search(videoId) !== -1) {
+//                // return that video index
+//                return videos[i];
+//            }
+//        }
+//        return false;
+//    }
     
 };
