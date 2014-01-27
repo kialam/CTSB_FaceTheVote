@@ -3,69 +3,95 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var Ranking = function() {
+var Ranking = function(data) {
     
     var videos = [
         {
             name: 'Office Thief',
             thumb: 'office-thumb.png',
             id: 'oMdwJ7fyp00',
-            class: 'office'
+            class: 'office',
+            data: new Array(),
+            contentId: '14400',
+            order: 0
         },
         {
             name: 'Ostrich Thief',
             thumb: 'ostrich-thumb.png',
             id: 'MoANeCLWOjI',
-            class: 'ostrich'
+            class: 'ostrich',
+            data: new Array(),
+            contentId: '14399',
+            order: 0
+            
         },
         {
             name: 'Finger Cleaner',
             thumb: 'finger-thumb.png',
             id: 'ugo7Y2lRsxc',
-            class: 'finger'
+            class: 'finger',
+            data: new Array(),
+            contentId: '14398',
+            order: 0
         },
         {
             name: 'Time Machine',
             thumb: 'time-thumb.png',
             id: 'Y-P0Hs0ADJY',
-            class: 'time'
+            class: 'time',
+            data: new Array(),
+            contentId: '14397',
+            order: 0
         },
         {
             name: 'Cowboy Kid',
             thumb: 'cowboy-thumb.png',
             id: 'FHY5pwgCY3w',
-            class: 'cowboy'
+            class: 'cowboy',
+            data: new Array(),
+            contentId: '14396',
+            order: 0
         }
     ];
     
-    var ranking = [
-        'MoANeCLWOjI',
-        'oMdwJ7fyp00',
-        'ugo7Y2lRsxc',
-        'Y-P0Hs0ADJY',
-        'FHY5pwgCY3w'
-    ];
+    // loop the data and assign the data to the videos array above
+    var count = 0;
+    for(key in data) {
+        for(var i = 0; i < videos.length; i++) {
+            if(key.search(videos[i].id) !== -1) {
+                // we found the correct key
+                videos[i].data = data[key];
+                videos[i].order = count;
+                count++;
+            }
+        }
+    }
     
     this.track = function() {
         // start cataloging results here
     };
     
-    this.getRankingOrder = function() {
-        return ranking;
+    this.getVideos = function() {
+        return videos;
     };
     
-    this.getRankingOrderHTML = function() {
+    this.getVideosHTML = function() {
         var html = '';
+        var ordered = new Array();
         
-        for(var i = 0; i < ranking.length; i++) {
+        // sort by order
+        for(var i = 0, l = videos.length; i < l; i++) {
+            ordered[parseInt(videos[i].order)] = videos[i];
+        }
+        
+        // output html
+        for(var t = 0, l = ordered.length; t < l; t++) {
+            var video = findVideo(ordered[t].id);
             
-            var video = findVideo(ranking[i]);
-            
-            html = html +   '<li class="'+video.class+'">' +
+            html = html +   '<li class="'+video.class+'" data-vid="'+video.id+'" data-cid="'+video.contentId+'">' +
                                 '<a href="#"><img src="images/'+video.thumb+'" /></a>' +
                             '</li>';
         }
-        
         return html;
     };
     

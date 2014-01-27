@@ -3,8 +3,6 @@ var VideoSwitcher = {
     currentVideoId: '',
     init: function(e) {
         
-        
-        
         // prevent the default
         if(e) {
             e.preventDefault();
@@ -35,7 +33,7 @@ var VideoSwitcher = {
 
             if(data.video_id !== self.currentVideoId) {
                 // we changed videos
-                self.currentVideoId = data.video_id;
+                currentVideo = data.video_id;
                 console.log(self.currentVideoId);
             }
 

@@ -12,8 +12,6 @@ var SmileTracker = function() {
     var emotionData = ec.getBlank();
     
 //    var count = 0;
-
-    var smileValue = 0;
     
     var paused = false;
     var drawing = false;
@@ -21,6 +19,8 @@ var SmileTracker = function() {
     
     var framesToSkip = 5,
         counter = 0;
+
+    var data = new Object();
 
     this.start = function() {
         // set paused = false
@@ -48,9 +48,9 @@ var SmileTracker = function() {
         drawing = b;
     };
     
-    this.getCurrentSmileValue = function() {
-        return smileValue;
-    };
+    this.getData = function() {
+        return data;
+    }
     
     function drawLoop() {
         
@@ -80,9 +80,15 @@ var SmileTracker = function() {
         
         var er = ec.meanPredict(cp);
         if (er) {
-            smileValue = er[3].value;
+//            smileValue = er[3].value;
+            if(currentVideo in data) {
+                data[currentVideo].push(er[3].value);
+            } else {
+                data[currentVideo] = new Array();
+                data[currentVideo].push(er[3].value);
+            }
+            console.log(er[3].value)
         }
-        
         
     }
     

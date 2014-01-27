@@ -54,23 +54,25 @@
         
         $(window).on('videos_ended', function(evt) {
             smileTracker.pause();
+            
+            // replace default html with the real order of the videos
+            var r = new Ranking(smileTracker.getData());
+            var html = r.getVideosHTML();
+            $('.resultsVideos ul').html(html);
+            
             hidePage(watch);
             showPage(results);
+            
+            // TODO make this real
+            $('.vote').on('click', function(evt) {
+                // get content id
+                var cid = $(this).data('cid');
+                voteThisMoment(cid, function() {
+                    // dispay a message that says thanks for the vote
+                });
+            });
         });
         
-//        $(window).on('smile_update', function(evt) {
-//            // check the current video
-//            addReadingToAnalytics(VideoSwitcher.currentVideoId, evt.smileValue);
-//        });
-        
-//        setInterval(function() {
-//            var val = smileTracker.getCurrentSmileValue();
-//            if(val !== lastValue) {
-//                lastValue = val;
-//                addReadingToAnalytics(VideoSwitcher.currentVideoId, val);
-//            }
-//        }, 1000);
-
         // how button clicked
         results.find('.howButton').on('click', function(evt) {
             evt.preventDefault();
@@ -82,20 +84,6 @@
             smileTracker.setDrawing(true);
             smileTracker.start();
         });
-        
-        // no face!
-//        $(document).on('clmtrackrNotFound', function(evt) {
-//            console.log('no face')
-//            VideoSwitcher.pause();
-//        });
-//        // ???
-//        $(document).on('clmtrackrLost', function(evt) {
-//            console.log('no face')
-//            VideoSwitcher.pause();
-//        });
-//        
-//        // TODO - find out how to play the video once we find the face
-        
         
         // fragments
         if(window.location.hash) {
@@ -171,4 +159,34 @@ function hidePage(elem) {
     setTimeout(function() {
         elem.addClass('hidden');
     }, 1000);
+}
+
+function voteThisMoment(cid, callback) {
+    // check for presence of past voting cookie
+    if(document.cookie.indexOf('hvdor=') !== -1) {
+        alert('You\'ve already voted today. Please try again tomorrow.');
+        return;
+    }
+    
+    jQuery.support.cors = true;
+    var url = 'https://www.doritos.com/v4/api/content/vote.json';
+    
+    // this doesn't work in IE 9; works in IE 10
+    $.getJSON(url, {
+        content_id: cid
+    }, function(data) {
+        if(data.status == 'OK') {
+            setVotingCookie();
+            callback();
+        } else {
+            console.log('no vote cast');
+        }   
+    })
+    .error(function(jqXHR, textStatus, errorThrown) { alert(errorThrown); });
+}
+
+function setVotingCookie() {
+    var date = new Date();
+    var midnight = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 23, 59, 59);
+    document.cookie = 'hvdor=1; expires=' + midnight.toGMTString() + '; path=/';
 }
