@@ -67,6 +67,7 @@ p {
     background: transparent url(../images/watch.png) scroll no-repeat;
     text-indent: -9999px;
     border: none;
+    outline: none;
     cursor: pointer;
     margin: 60px 293px 0 293px;
 }
@@ -117,7 +118,7 @@ p {
 }
 
 .howButton {
-    margin: 5px 0 0 314px;
+    margin: 100px 0 0 314px;
 }
 
 /* HOW */
@@ -129,5 +130,6 @@ p {
     background: transparent url(../images/howButton.png) scroll no-repeat;
     text-indent: -9999px;
     border: none;
+    outline: none;
     cursor: pointer;
 }
