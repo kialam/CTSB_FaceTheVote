@@ -57,7 +57,31 @@
               <div id='emotion_chart'></div>
           </div>
           <div class="page hidden results" data-pageName="results">
-              <h1 class="resultsTitle">YOU HAVE A WINNER</h1>
+              <div class="stats">
+                  <div class="ostrichStats hidden">
+                      <p>Test</p>
+                      <div class="voteButton">Vote</div>
+                  </div>
+                  <div class="officeStats hidden">
+                      <p>Test</p>
+                      <div class="voteButton">Vote</div>
+                  </div>
+                  <div class="fingerStats hidden">
+                      <p>Test</p>
+                      <div class="voteButton">Vote</div>
+                  </div>
+                  <div class="timeStats hidden">
+                      <p>Test</p>
+                      <div class="voteButton">Vote</div>
+                  </div>
+                  <div class="cowboyStats hidden">
+                      <p>Test</p>
+                      <div class="voteButton">Vote</div>
+                  </div>
+                  <div class="winner">
+                      <h1 class="resultsTitle">YOU HAVE A WINNER</h1>
+                  </div>
+              </div> <!-- end stats -->
               <div class="resultsVideos">
                   <ul>
                       <li class="ostrichThumb">
@@ -77,43 +101,16 @@
                       </li>
                   </ul>
               </div>
-             
+              <div class="thumbGraph">
+                  <canvas class="thumbGraphCanvas" width="810" height="200"></canvas>
+              </div>
               <button class="howButton">How this works</button>
-          </div>
-        <div class="Stats">
-          <div class="ostrichStats hidden" data-pageName="ostrichStats">
-              <p>Test</p>
-              <!-- <img src="images/vote.png"> -->
-          <div class="voteButton">Vote</div>
-              
-          </div>
-          <div class="officeStats hidden">
-            <p>Office prank</p>
-            <div class="voteButton">Vote</div>
-          </div>
-          
-          <div class="fingerStats hidden">
-            <p>finger prank</p>
-            <img src="images/vote.png">
-          </div>
-          <div class="timeStats hidden">
-            <p>time prank</p>
-            <img src="images/vote.png">
-          </div>
-          <div class="cowboyStats hidden">
-            <p>cowboy prank</p>
-            <img src="images/vote.png">
-          </div>
-        </div><!-- end Stats -->
-          <div class="thumbGraph">
-            <canvas class="thumbGraphCanvas" width="810" height="200"></canvas>
-          </div>
+          </div><!-- end results -->
           <div class="page hidden how" data-pageName="how">
               <video id="videoel" width="400" height="300" preload="auto" loop></video>
               <canvas id="overlay" width="400" height="300"></canvas>
-          </div>
-      </div>
-      
+          </div>  
+      </div><!-- end container -->
 <!--    <div class="container">
         <div class="page start">
             <div class="center">
