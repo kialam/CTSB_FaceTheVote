@@ -102,8 +102,8 @@
             smileTracker.start();
         });
         
-        // ostrich hover
-        $('.resultsVideos').on ('mouseover', '.ostrichThumb img', function() {
+        // Hover Stats
+        $('.resultsVideos ul').on ('mouseover', '.ostrichThumb', function() {
                 hidePage(officeStats, true);
                 hidePage(fingerStats, true);
                 hidePage(timeStats, true);
@@ -111,70 +111,47 @@
                 hidePage(winner, true);
                 showPage(ostrichStats);
                 console.log('fired');
-                 }
-            // function() {
-                // hidePage(ostrichStats);
-            // }
-        );
-        
-        // Hover Stats
-        $('li.officeThumb').hover (
-            function() {
+        });
+        $('.resultsVideos ul').on('mouseover', '.officeThumb', function() {
                 hidePage(ostrichStats, true);
                 hidePage(fingerStats, true);
                 hidePage(timeStats, true);
                 hidePage(cowboyStats, true);
                 hidePage(winner, true);
                 showPage(officeStats);
-            },
-            function() {
-                // hidePage(officeStats);
-            }
-            );
+                console.log('fired');
+        });
 
-        $('li.fingerThumb').hover (
-            function() {
+        $('.resultsVideos ul').on('mouseover', '.fingerThumb', function() {
                 hidePage(officeStats, true);
                 hidePage(timeStats, true);
                 hidePage(cowboyStats, true);
                 hidePage(winner, true);
                 hidePage(ostrichStats, true);
                 showPage(fingerStats);
-            }, 
-            function() {
-                // hidePage(fingerStats);
-            }
-        );
-
-        $('li.timeThumb').hover (
-            function() {
+                console.log('fired');
+            });
+        
+        $('.resultsVideos ul').on('mouseover', '.timeThumb', function() {
                 hidePage(officeStats, true);
                 hidePage(fingerStats, true);
                 hidePage(cowboyStats, true);
                 hidePage(winner, true);
                 hidePage(ostrichStats, true);
                 showPage(timeStats);
-            }, 
-            function() {
-                // hidePage(timeStats);
-            }
-        );
+                console.log('fired');
+        });
 
-        $('li.cowboyThumb').hover (
-            function() {
+        $('.resultsVideos ul').on('mouseover', '.cowboyThumb', function() {
                 hidePage(officeStats, true);
                 hidePage(fingerStats, true);
                 hidePage(timeStats, true);
                 hidePage(winner, true);
                 hidePage(ostrichStats, true);
-                showPage(cowboyStats);}, 
-            function() {
-                // hidePage(cowboyStats);
-            }
-        );
+                showPage(cowboyStats);
+                console.log('fired');
+        });
  
-        
-
         // fragments
         if(window.location.hash) {
 
@@ -203,9 +180,6 @@
                 hidePage(permission);
                 hidePage(how);
                 showPage(results);
-
-                var thumbs = ranking.getRankingOrderHTML();
-                results.find('.resultsVideos ul').html(thumbs);
             }
 
             if(window.location.hash.search('how') !== -1) {
