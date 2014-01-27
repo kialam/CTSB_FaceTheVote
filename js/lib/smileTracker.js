@@ -1,5 +1,6 @@
 /**
- * TODO - figure out how to check once every XXms 
+ * TODO - handle no face
+ * TODO - handle face lost
  */
 
 var SmileTracker = function() {
@@ -21,7 +22,21 @@ var SmileTracker = function() {
         counter = 0;
 
     var data = new Object();
-
+    
+    var self = this;
+    
+    // no face detected when starting
+    $(document).on('clmtrackrNotFound', function(evt) {
+        // dont know if we really need this one yet
+    });
+    
+    // face was lost
+    $(document).on('clmtrackrLost', function(evt) {
+        // we lost you, pause the script until the next video
+        self.pause();
+        smileTrackingLost = true;
+    });
+    
     this.start = function() {
         // set paused = false
         paused = false;

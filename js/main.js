@@ -45,7 +45,9 @@
         });
         
         $(window).on('videos_playing', function(evt) {
-            smileTracker.start();
+            if(!smileTrackingLost) {
+                smileTracker.start();
+            }
         });
         
         $(window).on('videos_paused', function(evt) {
@@ -71,6 +73,12 @@
                     // dispay a message that says thanks for the vote
                 });
             });
+        });
+        
+        // a video has changed
+        $(window).on('video_changed', function() {
+            smileTracker.start();
+            smileTrackingLost = false;
         });
         
         // how button clicked

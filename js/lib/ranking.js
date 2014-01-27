@@ -13,7 +13,7 @@ var Ranking = function(data) {
             class: 'officeThumb',
             data: new Array(),
             contentId: '14400',
-            order: 0
+//            order: 0
         },
         {
             name: 'Ostrich Thief',
@@ -22,7 +22,7 @@ var Ranking = function(data) {
             class: 'ostrichThumb',
             data: new Array(),
             contentId: '14399',
-            order: 0
+//            order: 0
             
         },
         {
@@ -32,7 +32,7 @@ var Ranking = function(data) {
             class: 'fingerThumb',
             data: new Array(),
             contentId: '14398',
-            order: 0
+//            order: 0
         },
         {
             name: 'Time Machine',
@@ -41,7 +41,7 @@ var Ranking = function(data) {
             class: 'timeThumb',
             data: new Array(),
             contentId: '14397',
-            order: 0
+//            order: 0
         },
         {
             name: 'Cowboy Kid',
@@ -50,7 +50,7 @@ var Ranking = function(data) {
             class: 'cowboyThumb',
             data: new Array(),
             contentId: '14396',
-            order: 0
+//            order: 0
         }
     ];
     
@@ -61,7 +61,7 @@ var Ranking = function(data) {
             if(key.search(videos[i].id) !== -1) {
                 // we found the correct key
                 videos[i].data = data[key];
-                videos[i].order = count;
+//                videos[i].order = count;
                 count++;
             }
         }
