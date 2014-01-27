@@ -105,7 +105,7 @@
                 showPage(ostrichStats);
                  },
             function() {
-                hidePage(ostrichStats);
+                // hidePage(ostrichStats);
             }
         );
         
@@ -115,7 +115,7 @@
                 showPage(officeStats);
             },
             function() {
-                hidePage(officeStats);
+                // hidePage(officeStats);
             }
             );
 
