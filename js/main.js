@@ -14,7 +14,11 @@
         smileTracker = new SmileTracker();
         
         // ranking
+<<<<<<< HEAD
         // ranking = new Ranking();
+=======
+//        ranking = new Ranking();
+>>>>>>> 657d46a3dd3c4e918e4b8f159c03c7746d39ef6d
         
         // pages
         intro = $('.intro');
