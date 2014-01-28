@@ -162,7 +162,7 @@ p {
     height: 199px;
     display: inline-block;
     /*background: transparent url(../images/finger_stats.png) scroll no-repeat;*/
-    text-indent: -9999px;
+    /*text-indent: -9999px;*/
     margin: 0 0 0 30px;
 
 }
