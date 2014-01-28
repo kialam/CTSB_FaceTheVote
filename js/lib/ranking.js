@@ -110,7 +110,45 @@ var Ranking = function(data) {
         return html;
     }
     
-    
+    // Graph Function
+    $.getJSON("dummy/data.json", function(data){
+    var id=0;
+    console.log(data)
+    for(var propName in data) {
+      id++
+      graphData(data[propName],"canvas"+id);
+    }
+    });
+
+
+    function graphData(array,canvasID){
+
+      console.log(canvasID);
+      console.log(array);
+
+      var width=297;
+      var height=199;
+      var c=document.getElementById(canvasID);
+      var ctx=c.getContext("2d");
+      ctx.beginPath();
+      ctx.moveTo(0,height);
+      ctx.strokeStyle = 'rgba(255, 0, 0, 0)';
+
+      var smileData = array;
+      for (var i = 0; i < smileData.length; i++) {
+        var y=height-smileData[i]*height;
+        ctx.lineTo(width*i/smileData.length,y);
+      };
+      ctx.lineTo(width,height);
+      ctx.lineTo(0,height);
+      var grd=ctx.createLinearGradient(0,0,0,170);
+      grd.addColorStop(0,"#f80001");
+      grd.addColorStop(1,"#b00606");
+
+      ctx.fillStyle=grd;
+      ctx.fill();
+
+    }
     // TODO - this needs to convert the points to pixels for the graph
 //    this.drawThumbGraph = function(elem) {
 //        var canvas = elem,
