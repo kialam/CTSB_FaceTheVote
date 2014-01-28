@@ -6,7 +6,9 @@ var Ranking = function(data) {
             thumb: 'office-thumb.png',
             id: 'oMdwJ7fyp00',
             class: 'officeThumb',
+            statsContainer: 'officeStats',
             data: new Array(),
+            canvas: 'officeCanvas',
             contentId: '14400',
             width: 156
 //            order: 0
@@ -16,7 +18,9 @@ var Ranking = function(data) {
             thumb: 'ostrich-thumb.png',
             id: 'MoANeCLWOjI',
             class: 'ostrichThumb',
+            statsContainer: 'ostrichStats',
             data: new Array(),
+            canvas: 'ostrichCanvas',
             contentId: '14399',
             width: 166
 //            order: 0
@@ -27,7 +31,9 @@ var Ranking = function(data) {
             thumb: 'finger-thumb.png',
             id: 'ugo7Y2lRsxc',
             class: 'fingerThumb',
+            statsContainer: 'fingerStats',
             data: new Array(),
+            canvas: 'fingerCanvas',
             contentId: '14398',
             width: 164
 //            order: 0
@@ -37,7 +43,9 @@ var Ranking = function(data) {
             thumb: 'time-thumb.png',
             id: 'Y-P0Hs0ADJY',
             class: 'timeThumb',
+            statsContainer: 'timeStats',
             data: new Array(),
+            canvas: 'timeCanvas',
             contentId: '14397',
             width: 163
 //            order: 0
@@ -47,7 +55,9 @@ var Ranking = function(data) {
             thumb: 'cowboy-thumb.png',
             id: 'FHY5pwgCY3w',
             class: 'cowboyThumb',
+            statsContainer: 'cowboyStats',
             data: new Array(),
+            canvas: 'cowboyCanvas',
             contentId: '14396',
             width: 164
 //            order: 0
@@ -97,6 +107,17 @@ var Ranking = function(data) {
         
         return html;
     };
+
+    this.generateGraphs = function() {
+        for(var i = 0; i < videos.length; i++) {
+            var data = videos[i].data;
+            var canvas = videos[i].canvas;
+            graphData(data, canvas);
+        }
+        else {
+            console.log('no graphs!');
+        }
+    }
     
     function generateVideoHTML(video) {
         var html =  '<li class="'+video.class+'" data-vid="'+video.id+'" data-cid="'+video.contentId+'">' +
