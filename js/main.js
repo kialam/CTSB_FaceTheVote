@@ -14,7 +14,7 @@
         smileTracker = new SmileTracker();
         
         // ranking
-        ranking = new Ranking();
+//        ranking = new Ranking();
         
         // pages
         intro = $('.intro');

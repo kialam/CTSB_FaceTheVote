@@ -113,10 +113,7 @@ var Ranking = function(data) {
             var data = videos[i].data;
             var canvas = videos[i].canvas;
             graphData(data, canvas);
-        }
-        else {
-            console.log('no graphs!');
-        }
+        } 
     }
     
     function generateVideoHTML(video) {
