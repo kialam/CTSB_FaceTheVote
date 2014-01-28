@@ -38,11 +38,11 @@ p {
     position: absolute;
     top: 0;
     left: 0;
-    
-    -webkit-transition: opacity 500ms linear;
-    -moz-transition: opacity 500ms linear;
-    -o-transition: opacity 500ms linear;
-    transition: opacity 500ms linear;
+    -webkit-animation: opacity 500ms;
+    -webkit-transition: opacity 500ms ease-in;
+    -moz-transition: opacity 500ms ease-in;
+    -o-transition: opacity 500ms ease-in;
+    transition: opacity 500ms ease-in;
 }
 
 .container .hidden {
@@ -269,16 +269,6 @@ canvas {
 /* HOW */
 
 .howButton {
-    /*
-        temporary fix while we get the how page to work
-    */
-    pointer-events: none;
-    cursor: default;
-    opacity: 0;
-    /*
-        temporary fix while we get the how page to work
-    */
-    
     position: absolute;
     top: 5px;
     display: inline-block;

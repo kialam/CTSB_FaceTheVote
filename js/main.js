@@ -95,7 +95,7 @@
         results.find('.howButton').on('click', function(evt) {
             evt.preventDefault();
             destinationPage = 'how';
-            hidePage(results);
+            hidePage(results);     
             showPage(how);
             
             // start the smile tracker and draw this time
@@ -181,14 +181,32 @@ function addReadingToAnalytics(id, value) {
     }
 }
 
-function showPage(elem) {
-    elem.removeClass('hidden').css({
-        opacity: 1
+function showPage(elem, instant) {
+    instant = instant || false;
+
+    // NEW CODE
+    elem.css({
+        opacity:1
     });
+
+    if(instant) {
+        elem.removeClass('hidden');
+    }
+    else {
+    setTimeout(function() {
+        elem.removeClass('hidden');
+        }, 1000);
+    }
 }
 
+    // OLD CODE
+    // elem.removeClass('hidden').css({
+    //     opacity: 1
+    // });
+
+
 function hidePage(elem, instant) {
-    instant = instant || false
+    instant = instant || false;
 
     elem.css({
         opacity: 0
@@ -210,7 +228,7 @@ function showOstrich(evt) {
     hidePage(timeStats, true);
     hidePage(cowboyStats, true);
     hidePage(winner, true);
-    showPage(ostrichStats);
+    showPage(ostrichStats, true);
 }
 
 function showOffice(evt) {
@@ -219,7 +237,7 @@ function showOffice(evt) {
     hidePage(timeStats, true);
     hidePage(cowboyStats, true);
     hidePage(winner, true);
-    showPage(officeStats);
+    showPage(officeStats, true);
 }
 
 function showFinger(evt) {
@@ -228,7 +246,7 @@ function showFinger(evt) {
     hidePage(cowboyStats, true);
     hidePage(winner, true);
     hidePage(ostrichStats, true);
-    showPage(fingerStats);
+    showPage(fingerStats, true);
 }
 
 function showTime(evt) {
@@ -237,7 +255,7 @@ function showTime(evt) {
     hidePage(cowboyStats, true);
     hidePage(winner, true);
     hidePage(ostrichStats, true);
-    showPage(timeStats);
+    showPage(timeStats, true);
 }
 
 function showCowboy(evt) {
@@ -246,7 +264,7 @@ function showCowboy(evt) {
     hidePage(timeStats, true);
     hidePage(winner, true);
     hidePage(ostrichStats, true);
-    showPage(cowboyStats);
+    showPage(cowboyStats, true);
 }
 
 function voteThisMoment(cid, callback) {
