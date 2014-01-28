@@ -94,6 +94,7 @@ var clm = {
 		var runnerTimeout, runnerElement, runnerBox;
 		
 		var pointWeights;
+		var countdown=0;
 
 		var halfPI = Math.PI/2;
 		
@@ -294,25 +295,37 @@ var clm = {
 			var scaling, translateX, translateY, rotation;
 			var croppedPatches = [];
 			var ptch, px, py;
-						
+
+			//
+			// marpi's hack 
+			// throttling the test function for finding first face
+			// check countdown value
+			//
+
 			if (first) {
-				// do viola-jones on canvas to get initial guess, if we don't have any points
-				var gi = getInitialPosition(element, box);
-				if (!gi) {
-					// send an event on no face found
-					var evt = document.createEvent("Event");
-					evt.initEvent("clmtrackrNotFound", true, true);
-					document.dispatchEvent(evt)
+				if(countdown++==5000000){
+					countdown=0;
+					// do viola-jones on canvas to get initial guess, if we don't have any points
+					var gi = getInitialPosition(element, box);
+					if (!gi) {
+						// send an event on no face found
+						var evt = document.createEvent("Event");
+						evt.initEvent("clmtrackrNotFound", true, true);
+						document.dispatchEvent(evt)
+						
+						return false;
+					}
+					scaling = gi[0];
+					rotation = gi[1];
+					translateX = gi[2];
+					translateY = gi[3];
 					
+					first = false;
+				}else{
 					return false;
 				}
-				scaling = gi[0];
-				rotation = gi[1];
-				translateX = gi[2];
-				translateY = gi[3];
-				
-				first = false;
 			} else {
+				countdown=0;
 				facecheck_count += 1;
 				
 				// TODO : do cross-correlation/correlation-filter or similar to find translation of face
