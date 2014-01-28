@@ -64,6 +64,9 @@ var Ranking = function(data) {
         }
     ];
     
+    var faceGone = 0.22106179389933026;
+    
+    
     // loop the data and assign the data to the videos array above
     var count = 0;
     for(key in data) {
@@ -109,6 +112,7 @@ var Ranking = function(data) {
     };
 
     this.generateGraphs = function() {
+        
         for(var i = 0; i < videos.length; i++) {
             var data = videos[i].data;
             var canvas = $('#' + videos[i].canvas)[0];
@@ -138,8 +142,13 @@ var Ranking = function(data) {
 
         var smileData = array;
         for (var i = 0; i < smileData.length; i++) {
-        var y=height-smileData[i]*height;
-        ctx.lineTo(width*i/smileData.length,y);
+            
+            if(smileData[i] === faceGone) {
+                smileData[i] = 0;
+            }
+            
+            var y=height-smileData[i]*height;
+            ctx.lineTo(width*i/smileData.length,y);
         };
         ctx.lineTo(width,height);
         ctx.lineTo(0,height);

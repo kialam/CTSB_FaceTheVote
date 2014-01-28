@@ -28,9 +28,9 @@ var SmileTracker = function() {
     var self = this;
     
     // no face detected when starting
-    $(document).on('clmtrackrNotFound', function(evt) {
-        // dont know if we really need this one yet
-    });
+//    $(document).on('clmtrackrNotFound', function(evt) {
+//        // dont know if we really need this one yet
+//    });
     
     // DEPRECATED - 1.27.14
     // face was lost
@@ -105,7 +105,7 @@ var SmileTracker = function() {
                 data[currentVideo] = new Array();
                 data[currentVideo].push(er[3].value);
             }
-            console.log(er[3].value)
+//            console.log(er[3].value)
         }
         
     }

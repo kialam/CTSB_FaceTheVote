@@ -300,7 +300,6 @@ var clm = {
 			// marpi's hack 
 			// throttling the test function for finding first face
 			// check countdown value
-			//
 
 			if (first) {
 				if(countdown++==5000000){

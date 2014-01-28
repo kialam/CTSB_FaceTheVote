@@ -210,7 +210,6 @@ function showOstrich(evt) {
     hidePage(cowboyStats, true);
     hidePage(winner, true);
     showPage(ostrichStats);
-    console.log('fired');
 }
 
 function showOffice(evt) {
@@ -220,7 +219,6 @@ function showOffice(evt) {
     hidePage(cowboyStats, true);
     hidePage(winner, true);
     showPage(officeStats);
-    console.log('fired');
 }
 
 function showFinger(evt) {
@@ -230,7 +228,6 @@ function showFinger(evt) {
     hidePage(winner, true);
     hidePage(ostrichStats, true);
     showPage(fingerStats);
-    console.log('fired');
 }
 
 function showTime(evt) {
@@ -240,7 +237,6 @@ function showTime(evt) {
     hidePage(winner, true);
     hidePage(ostrichStats, true);
     showPage(timeStats);
-    console.log('fired');
 }
 
 function showCowboy(evt) {
@@ -250,7 +246,6 @@ function showCowboy(evt) {
     hidePage(winner, true);
     hidePage(ostrichStats, true);
     showPage(cowboyStats);
-    console.log('fired');
 }
 
 function voteThisMoment(cid, callback) {
