@@ -71,7 +71,6 @@ var Ranking = function(data) {
     
     var faceGone = 0.22106179389933026;
     
-    
     // loop the data and assign the data to the videos array above
     var count = 0;
     for(key in data) {
@@ -134,6 +133,13 @@ var Ranking = function(data) {
             $('.' + videos[i].statsContainer).find('.smilenum').html(videos[i].smileCount);
         }
     };
+    
+//    this.setContentIds = function() {
+//        for(var i = 0; i < videos.length; i++) {
+//            var con = $('.' + videos[i].statsContainer);
+//            con.find('.voteButton').data('cid', videos[i].contentId);
+//        }
+//    };
     
     function findPeaks(data) {
         var prev = null;

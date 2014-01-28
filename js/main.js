@@ -72,6 +72,7 @@
             $('.resultsVideos ul').html(html);
             r.generateGraphs();
             r.getSmileCounts();
+//            r.setContentIds();
             
             hidePage(watch);
             showPage(results);
@@ -79,8 +80,12 @@
             $('.voteButton').on('click', function(evt) {
                 // get content id
                 var cid = $(this).data('cid');
-                voteThisMoment(cid, function() {
+                
+                console.log('cid: ' + cid)
+                
+                voteThisMoment(cid, function(data) {
                     // dispay a message that says thanks for the vote
+                    console.log(data)
                 });
             });
         });
@@ -266,9 +271,10 @@ function voteThisMoment(cid, callback) {
     }, function(data) {
         if(data.status == 'OK') {
             setVotingCookie();
-            callback();
+            callback(data);
         } else {
             console.log('no vote cast');
+            console.log(data)
         }   
     })
     .error(function(jqXHR, textStatus, errorThrown) { alert(errorThrown); });
