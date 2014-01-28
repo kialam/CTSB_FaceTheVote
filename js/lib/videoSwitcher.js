@@ -3,6 +3,8 @@ var VideoSwitcher = {
     currentVideoId: '',
     init: function(e) {
         
+        var controls = (location.host.search('localhost') !== -1) ? 1 : 0;
+        
         // prevent the default
         if(e) {
             e.preventDefault();
@@ -14,7 +16,7 @@ var VideoSwitcher = {
             height: '500',
             width: '810',
             playerVars: {
-                controls: 1
+                controls: controls
             },
             events: {
                 'onReady': self.onPlayerReady,
