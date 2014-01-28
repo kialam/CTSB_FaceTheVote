@@ -74,8 +74,7 @@
             hidePage(watch);
             showPage(results);
             
-            // TODO make this real
-            $('.vote').on('click', function(evt) {
+            $('.voteButton').on('click', function(evt) {
                 // get content id
                 var cid = $(this).data('cid');
                 voteThisMoment(cid, function() {
@@ -107,6 +106,7 @@
         $('.resultsVideos ul').on ('mouseover', '.ostrichThumb', function() {
                 showOstrich();
         });
+        
         $('.resultsVideos ul').on('mouseover', '.officeThumb', function() {
                 showOffice();
         });
