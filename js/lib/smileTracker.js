@@ -32,12 +32,13 @@ var SmileTracker = function() {
         // dont know if we really need this one yet
     });
     
+    // DEPRECATED - 1.27.14
     // face was lost
-    $(document).on('clmtrackrLost', function(evt) {
-        // we lost you, pause the script until the next video
-        self.pause();
-        smileTrackingLost = true;
-    });
+//    $(document).on('clmtrackrLost', function(evt) {
+//        // we lost you, pause the script until the next video
+//        self.pause();
+//        smileTrackingLost = true;
+//    });
     
     this.start = function() {
         // set paused = false
