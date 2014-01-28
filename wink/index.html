@@ -244,7 +244,7 @@
 				var ec = new emotionClassifier();
 				ec.init(emotionModel);
 				var emotionData = ec.getBlank();	
-				
+                                
 				/************ d3 code for barchart *****************/
 
 				var margin = {top : 20, right : 20, bottom : 10, left : 40},
@@ -301,6 +301,9 @@
 				  attr("class", "yAxis");
 
 				function updateData(data) {
+                                    
+                                    console.log(data)
+                                    
                                     // update
                                     var rects = svg.selectAll("rect")
                                             .data(data)
