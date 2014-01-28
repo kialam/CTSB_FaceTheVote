@@ -53,9 +53,12 @@
         });
         
         $(window).on('videos_playing', function(evt) {
-            if(!smileTrackingLost) {
-                smileTracker.start();
-            }
+            // DEPRECATED - 1.27.14
+//            if(!smileTrackingLost) {
+//                smileTracker.start();
+//            }
+            
+            smileTracker.start();
         });
         
         $(window).on('videos_paused', function(evt) {
@@ -84,11 +87,12 @@
             });
         });
         
+        // DEPRECATED - 1.27.14
         // a video has changed
-        $(window).on('video_changed', function() {
-            smileTracker.start();
-            smileTrackingLost = false;
-        });
+//        $(window).on('video_changed', function() {
+//            smileTracker.start();
+//            smileTrackingLost = false;
+//        });
         
         // how button clicked
         results.find('.howButton').on('click', function(evt) {
