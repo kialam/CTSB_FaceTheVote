@@ -269,6 +269,16 @@ canvas {
 /* HOW */
 
 .howButton {
+    /*
+        temporary fix while we get the how page to work
+    */
+    pointer-events: none;
+    cursor: default;
+    opacity: 0;
+    /*
+        temporary fix while we get the how page to work
+    */
+    
     position: absolute;
     top: 5px;
     display: inline-block;
