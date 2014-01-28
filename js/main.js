@@ -46,6 +46,7 @@
                 hidePage(permission);
                 showPage(watch);
                 VideoSwitcher.init(evt);
+                smileTracker.createBarChart('emotion_chart');
             }
         });
         

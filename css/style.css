@@ -22,6 +22,10 @@ p {
     text-transform: uppercase;
 }
 
+body {
+    background-color: black;
+}
+
 
 /* MAIN */
 .container {
@@ -107,6 +111,12 @@ p {
     margin: 50px 143px 0 143px;
 }
 
+/* WATCH */
+#emotion_chart {
+    position: absolute;
+    top: 373px;
+    left: 700px;
+}
 
 /* RESULTS */
 

@@ -14,7 +14,7 @@ var VideoSwitcher = {
             height: '500',
             width: '810',
             playerVars: {
-                controls: 1
+                controls: 0
             },
             events: {
                 'onReady': self.onPlayerReady,
