@@ -67,7 +67,7 @@ var SmileTracker = function() {
     
     this.getData = function() {
         return data;
-    }
+    };
     
     function drawLoop() {
         

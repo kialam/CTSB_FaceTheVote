@@ -69,7 +69,7 @@
             var r = new Ranking(smileTracker.getData());
             var html = r.getVideosHTML();
             $('.resultsVideos ul').html(html);
-            r.drawThumbGraph($('.thumbGraphCanvas')[0]);
+//            r.drawThumbGraph($('.thumbGraphCanvas')[0]);
             
             hidePage(watch);
             showPage(results);

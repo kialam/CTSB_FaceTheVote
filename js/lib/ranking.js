@@ -112,41 +112,41 @@ var Ranking = function(data) {
     
     
     // TODO - this needs to convert the points to pixels for the graph
-    this.drawThumbGraph = function(elem) {
-        var canvas = elem,
-            ctx = canvas.getContext("2d"),
-            w = canvas.width,
-            h = canvas.height;
-    
-        var order = VideoSwitcher.getOrder();
-        
-        ctx.beginPath();
-    
-        var prevY = 0;
-        var x = 0;
-        for(var t = 0, l = order.length; t < l; t++) {
-            for(var i = 0; i < videos.length; i++) {
-                if(videos[i].id.search(order[t]) !== -1) {
-                    
-                    for(var c = 0; c < videos[i].data.length; c++) {
-                        
-                        ctx.moveTo(x, prevY);
-                        ctx.lineTo(x + 1, (-1 * (videos[i].data[c] * 10)));
-                        ctx.strokeStyle = "red";
-                        ctx.lineWidth = 1;
-                        ctx.stroke();
-                        
-                        prevY = videos[i].data[c];
-                        x++;
-                    }
-                        
-                }
-            }
-        }
-        
-        ctx.closePath();
-        
-    }
+//    this.drawThumbGraph = function(elem) {
+//        var canvas = elem,
+//            ctx = canvas.getContext("2d"),
+//            w = canvas.width,
+//            h = canvas.height;
+//    
+//        var order = VideoSwitcher.getOrder();
+//        
+//        ctx.beginPath();
+//    
+//        var prevY = 0;
+//        var x = 0;
+//        for(var t = 0, l = order.length; t < l; t++) {
+//            for(var i = 0; i < videos.length; i++) {
+//                if(videos[i].id.search(order[t]) !== -1) {
+//                    
+//                    for(var c = 0; c < videos[i].data.length; c++) {
+//                        
+//                        ctx.moveTo(x, prevY);
+//                        ctx.lineTo(x + 1, (-1 * (videos[i].data[c] * 10)));
+//                        ctx.strokeStyle = "red";
+//                        ctx.lineWidth = 1;
+//                        ctx.stroke();
+//                        
+//                        prevY = videos[i].data[c];
+//                        x++;
+//                    }
+//                        
+//                }
+//            }
+//        }
+//        
+//        ctx.closePath();
+//        
+//    }
     
     // DEPRECATED 1.26.14
 //    function findVideo(videoId) {
