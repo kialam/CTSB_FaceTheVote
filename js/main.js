@@ -13,10 +13,6 @@
         overlayCC = overlay.getContext('2d');
         smileTracker = new SmileTracker();
         
-<<<<<<< HEAD
-
-=======
->>>>>>> 1bb6d6da4936f7a39dc2982603f47ddbff3f82bd
         // pages
         intro = $('.intro');
         permission = $('.permission');
