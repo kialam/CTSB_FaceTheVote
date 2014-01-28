@@ -16,7 +16,9 @@ p {
     text-align: center;
     font-size: 22px;
     line-height: 100%;
-    word-spacing: 2px;
+    /*word-spacing: 2px;*/
+    letter-spacing: .0625em;
+    line-height: 30px;
     text-transform: uppercase;
 }
 
@@ -77,8 +79,10 @@ p {
 }
 
 .disclaimer {
-    font-size: 11px;
+    font-size: 12px;
     word-spacing: 1px;
+    line-height: 16px;
+    letter-spacing: .0625em;
 }
 
 .disclaimer a {
@@ -92,11 +96,11 @@ p {
 
 .webcamTitle {
     display: inline-block;
-    width: 438px;
-    height: 76px;
-    background: transparent url(../images/letwebcam.png) scroll no-repeat;
+    width: 482px;
+    height: 31px;
+    background: transparent url(../images/webcam.png) scroll no-repeat;
     text-indent: -99999px;
-    margin: 80px 188px 0 188px;
+    margin: 80px 188px 0 167px;
 }
 
 .permission p {
@@ -108,11 +112,12 @@ p {
 
 .resultsTitle {
     display: inline-block;
-    width: 414px;
-    height: 68px;
-    background: transparent url(../images/winner.png) scroll no-repeat;
+    width: 426px;
+    height: 35px;
+    background: transparent url(../images/waytogo.png) scroll no-repeat;
     text-indent: -99999px;
-    margin: 136px 197px 0 197px;
+    /*margin: 136px 197px 0 197px;*/
+    margin: 0 0 0 280px;
 }
 
 .resultsVideos {
@@ -134,6 +139,7 @@ p {
     float: left;
 }
 
+
 .statsContainer {
     width: 810px;
     height: 406px;
@@ -148,6 +154,25 @@ text-transform: uppercase;
 text-align: center;
 letter-spacing: 0.0625em;
 margin-top: 10px;
+}
+
+.statsContainer p {
+    font-size: 12px;
+}
+
+.winner h1 {
+    margin: 155px 0 0 280px;
+}
+
+.winner p {
+    font-size: 22px;
+
+}
+
+.wrap {
+    margin-top: 10px;
+    margin-left: 50px;
+    width: 700px;
 }
 
 .winner, .ostrichStats, .officeStats, .fingerStats, .timeStats, .cowboyStats {
@@ -165,7 +190,7 @@ margin-top: 10px;
     display: inline-block;
     background: transparent url(../images/vote_finger.png) scroll no-repeat;
     text-indent: -9999px;
-    margin: 80px 0 0 50px;
+    margin: 43px 0 0 50px;
 }
 
 .voteOstrich {
@@ -175,7 +200,7 @@ margin-top: 10px;
     display: inline-block;
     background: transparent url(../images/vote_ostrich.png) scroll no-repeat;
     text-indent: -9999px;
-    margin: 80px 0 0 50px;
+    margin: 43px 0 0 50px;
 }
 
 .voteOffice {
@@ -185,7 +210,7 @@ margin-top: 10px;
     display: inline-block;
     background: transparent url(../images/vote_office.png) scroll no-repeat;
     text-indent: -9999px;
-    margin: 80px 0 0 50px;
+    margin: 43px 0 0 50px;
 }
 
 .voteTime {
@@ -195,7 +220,7 @@ margin-top: 10px;
     display: inline-block;
     background: transparent url(../images/vote_time.png) scroll no-repeat;
     text-indent: -9999px;
-    margin: 80px 0 0 50px;
+    margin: 43px 0 0 50px;
 }
 
 .voteCowboy {
@@ -205,7 +230,7 @@ margin-top: 10px;
     display: inline-block;
     background: transparent url(../images/vote_cowboy.png) scroll no-repeat;
     text-indent: -9999px;
-    margin: 80px 0 0 50px;
+    margin: 43px 0 0 50px;
 }
 
 .graph {
@@ -215,21 +240,21 @@ margin-top: 10px;
     display: inline-block;
     /*background: transparent url(../images/finger_stats.png) scroll no-repeat;*/
     /*text-indent: -9999px;*/
-    margin: 80px 0 0 30px
+    margin: 43px 0 0 30px;
 
 }
 
 .voteButton {
     display: none;
-    width: 183px;
-    height: 60px;
+    width: 191px;
+    height: 65px;
     display: inline-block;
     background: transparent url(../images/vote.png) scroll no-repeat;
     text-indent: -9999px;
     outline: none;
     border: none;
     cursor: pointer;
-    margin: 0 0 0 525px;
+    margin: 7px 0 0 525px;
 }
 
 canvas {
@@ -238,7 +263,6 @@ canvas {
 }
 
 .howButton {
-    /*margin: 100px 0 0 314px;*/
     margin: 316px 0 0 -290px;
 }
 
@@ -246,7 +270,7 @@ canvas {
 
 .howButton {
     position: absolute;
-    top: 330px;
+    top: 5px;
     display: inline-block;
     width: 191px;
     height: 65px;
