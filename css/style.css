@@ -185,7 +185,7 @@ margin-top: 10px;
 
 .voteFinger {
     float: left;
-    width: 385px;
+    width: 384px;
     height: 216px;
     display: inline-block;
     background: transparent url(../images/vote_finger.png) scroll no-repeat;
