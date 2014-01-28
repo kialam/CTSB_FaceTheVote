@@ -126,15 +126,31 @@ var Ranking = function(data) {
         } 
     }
     
-    this.addSmileCounts = function() {
+    this.getSmileCounts = function() {
         for(var i = 0; i < videos.length; i++) {
-            for(var d = 0; d < videos[i].data.length; d++) {
-                // loop all the data and determine smiles
-                
-                // count total smiles
-            }
+            var peaks = findPeaks(videos[i].data);
+            videos[i].smileCount = peaks.length;
+            console.log(videos[i].name + ' ' + videos[i].statsContainer + ': ' + videos[i].smileCount);
+            $('.' + videos[i].statsContainer).find('.smilenum').html(videos[i].smileCount);
         }
     };
+    
+    function findPeaks(data) {
+        var prev = null;
+        var next = null;
+        var index = 1;
+        var peaks = new Array();
+        while(index < (data.length - 1)) {
+            prev = data[index - 1];
+            next = data[index + 1];
+            if((data[index] > prev) && (data[index] > next) && (data[index] > .5)) {
+                // we have a peak
+                peaks.push(data[index]);
+            }
+            index++;
+        }
+        return peaks;
+    }
     
     function generateVideoHTML(video) {
         var html =  '<li class="'+video.class+'" data-vid="'+video.id+'" data-cid="'+video.contentId+'">' +
@@ -144,9 +160,6 @@ var Ranking = function(data) {
     }
     
     function graphData(array, canvas){
-
-        console.log(canvas);
-        console.log(array);
 
         var width=297;
         var height=199;

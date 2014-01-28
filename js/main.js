@@ -70,7 +70,7 @@
             var html = r.getVideosHTML();
             $('.resultsVideos ul').html(html);
             r.generateGraphs();
-            r.addSmileCounts();
+            r.getSmileCounts();
             
             hidePage(watch);
             showPage(results);
