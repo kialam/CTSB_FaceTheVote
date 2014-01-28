@@ -10,7 +10,8 @@ var Ranking = function(data) {
             data: new Array(),
             canvas: 'officeCanvas',
             contentId: '14400',
-            width: 156
+            width: 156,
+            smileCount: 0
 //            order: 0
         },
         {
@@ -22,7 +23,8 @@ var Ranking = function(data) {
             data: new Array(),
             canvas: 'ostrichCanvas',
             contentId: '14399',
-            width: 166
+            width: 166,
+            smileCount: 0
 //            order: 0
             
         },
@@ -35,7 +37,8 @@ var Ranking = function(data) {
             data: new Array(),
             canvas: 'fingerCanvas',
             contentId: '14398',
-            width: 164
+            width: 164,
+            smileCount: 0
 //            order: 0
         },
         {
@@ -47,7 +50,8 @@ var Ranking = function(data) {
             data: new Array(),
             canvas: 'timeCanvas',
             contentId: '14397',
-            width: 163
+            width: 163,
+            smileCount: 0
 //            order: 0
         },
         {
@@ -59,7 +63,8 @@ var Ranking = function(data) {
             data: new Array(),
             canvas: 'cowboyCanvas',
             contentId: '14396',
-            width: 164
+            width: 164,
+            smileCount: 0
 //            order: 0
         }
     ];
@@ -120,6 +125,16 @@ var Ranking = function(data) {
             graphData(data, canvas);
         } 
     }
+    
+    this.addSmileCounts = function() {
+        for(var i = 0; i < videos.length; i++) {
+            for(var d = 0; d < videos[i].data.length; d++) {
+                // loop all the data and determine smiles
+                
+                // count total smiles
+            }
+        }
+    };
     
     function generateVideoHTML(video) {
         var html =  '<li class="'+video.class+'" data-vid="'+video.id+'" data-cid="'+video.contentId+'">' +
