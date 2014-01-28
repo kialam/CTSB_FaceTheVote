@@ -153,7 +153,7 @@ p {
     width: 385px;
     height: 216px;
     display: inline-block;
-    background: transparent url(../images/vote_finger.png) scroll no-repeat;
+    /*background: transparent url(../images/vote_finger.png) scroll no-repeat;*/
     text-indent: -9999px;
     margin: 80px 0 0 50px;
 }
