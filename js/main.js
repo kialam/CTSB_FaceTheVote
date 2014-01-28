@@ -14,7 +14,7 @@
         smileTracker = new SmileTracker();
         
         // ranking
-        ranking = new Ranking();
+        // ranking = new Ranking();
         
         // pages
         intro = $('.intro');
@@ -73,7 +73,7 @@
             var html = r.getVideosHTML();
             $('.resultsVideos ul').html(html);
 //            r.drawThumbGraph($('.thumbGraphCanvas')[0]);
-            
+            r.generateGraphs();
             hidePage(watch);
             showPage(results);
             
