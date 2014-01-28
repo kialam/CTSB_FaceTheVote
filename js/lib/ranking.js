@@ -111,7 +111,8 @@ var Ranking = function(data) {
     this.generateGraphs = function() {
         for(var i = 0; i < videos.length; i++) {
             var data = videos[i].data;
-            var canvas = videos[i].canvas;
+            var canvas = $('#' + videos[i].canvas)[0];
+            
             graphData(data, canvas);
         } 
     }
@@ -123,91 +124,32 @@ var Ranking = function(data) {
         return html;
     }
     
-    // Graph Function
-    $.getJSON("dummy/data.json", function(data){
-    var id=0;
-    console.log(data)
-    for(var propName in data) {
-      id++
-      graphData(data[propName],"canvas"+id);
-    }
-    });
+    function graphData(array, canvas){
 
+        console.log(canvas);
+        console.log(array);
 
-    function graphData(array,canvasID){
+        var width=297;
+        var height=199;
+        var ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(0,height);
+        ctx.strokeStyle = 'rgba(255, 0, 0, 0)';
 
-      console.log(canvasID);
-      console.log(array);
-
-      var width=297;
-      var height=199;
-      var c=document.getElementById(canvasID);
-      var ctx=c.getContext("2d");
-      ctx.beginPath();
-      ctx.moveTo(0,height);
-      ctx.strokeStyle = 'rgba(255, 0, 0, 0)';
-
-      var smileData = array;
-      for (var i = 0; i < smileData.length; i++) {
+        var smileData = array;
+        for (var i = 0; i < smileData.length; i++) {
         var y=height-smileData[i]*height;
         ctx.lineTo(width*i/smileData.length,y);
-      };
-      ctx.lineTo(width,height);
-      ctx.lineTo(0,height);
-      var grd=ctx.createLinearGradient(0,0,0,170);
-      grd.addColorStop(0,"#f80001");
-      grd.addColorStop(1,"#b00606");
+        };
+        ctx.lineTo(width,height);
+        ctx.lineTo(0,height);
+        var grd=ctx.createLinearGradient(0,0,0,170);
+        grd.addColorStop(0,"#f80001");
+        grd.addColorStop(1,"#b00606");
 
-      ctx.fillStyle=grd;
-      ctx.fill();
+        ctx.fillStyle=grd;
+        ctx.fill();
 
     }
-    // TODO - this needs to convert the points to pixels for the graph
-//    this.drawThumbGraph = function(elem) {
-//        var canvas = elem,
-//            ctx = canvas.getContext("2d"),
-//            w = canvas.width,
-//            h = canvas.height;
-//    
-//        var order = VideoSwitcher.getOrder();
-//        
-//        ctx.beginPath();
-//    
-//        var prevY = 0;
-//        var x = 0;
-//        for(var t = 0, l = order.length; t < l; t++) {
-//            for(var i = 0; i < videos.length; i++) {
-//                if(videos[i].id.search(order[t]) !== -1) {
-//                    
-//                    for(var c = 0; c < videos[i].data.length; c++) {
-//                        
-//                        ctx.moveTo(x, prevY);
-//                        ctx.lineTo(x + 1, (-1 * (videos[i].data[c] * 10)));
-//                        ctx.strokeStyle = "red";
-//                        ctx.lineWidth = 1;
-//                        ctx.stroke();
-//                        
-//                        prevY = videos[i].data[c];
-//                        x++;
-//                    }
-//                        
-//                }
-//            }
-//        }
-//        
-//        ctx.closePath();
-//        
-//    }
-    
-    // DEPRECATED 1.26.14
-//    function findVideo(videoId) {
-//        for(var i = 0; i < videos.length; i++) {
-//            if(videos[i].id.search(videoId) !== -1) {
-//                // return that video index
-//                return videos[i];
-//            }
-//        }
-//        return false;
-//    }
     
 };

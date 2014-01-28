@@ -13,13 +13,6 @@
         overlayCC = overlay.getContext('2d');
         smileTracker = new SmileTracker();
         
-        // ranking
-<<<<<<< HEAD
-        // ranking = new Ranking();
-=======
-//        ranking = new Ranking();
->>>>>>> 657d46a3dd3c4e918e4b8f159c03c7746d39ef6d
-        
         // pages
         intro = $('.intro');
         permission = $('.permission');
@@ -76,8 +69,8 @@
             var r = new Ranking(smileTracker.getData());
             var html = r.getVideosHTML();
             $('.resultsVideos ul').html(html);
-//            r.drawThumbGraph($('.thumbGraphCanvas')[0]);
             r.generateGraphs();
+            
             hidePage(watch);
             showPage(results);
             
