@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<canvas id="canvas1" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<canvas id="canvas2" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<canvas id="canvas3" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<canvas id="canvas4" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+<canvas id="canvas5" width="300" height="150" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+  $.getJSON("dummy/data.json", function(data){
+    var id=0;
+    var width=300;
+    var height=150;
+    for(var propName in data) {
+      id++
+
+      var c=document.getElementById("canvas"+id);
+      var ctx=c.getContext("2d");
+      ctx.beginPath();
+      ctx.moveTo(0,height);
+      if(data.hasOwnProperty(propName)) {
+        console.log(propName);
+
+        var smileData = data[propName];
+        for (var i = 0; i < smileData.length; i++) {
+          var y=height-smileData[i]*height;
+          ctx.lineTo(width*i/smileData.length,y);
+        };
+
+        ctx.fillText(propName,0,10)
+        
+      }
+
+      ctx.stroke();
+
+      
+    }
+    });
+
+    
+
+</script>
+
+</body>
+</html>

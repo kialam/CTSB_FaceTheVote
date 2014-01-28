@@ -64,7 +64,7 @@
         
         $(window).on('videos_ended', function(evt) {
             smileTracker.pause();
-            
+            Webcam.stopWebcam();
             // replace default html with the real order of the videos
             var r = new Ranking(smileTracker.getData());
             var html = r.getVideosHTML();
@@ -104,52 +104,22 @@
         
         // Hover Stats
         $('.resultsVideos ul').on ('mouseover', '.ostrichThumb', function() {
-                hidePage(officeStats, true);
-                hidePage(fingerStats, true);
-                hidePage(timeStats, true);
-                hidePage(cowboyStats, true);
-                hidePage(winner, true);
-                showPage(ostrichStats);
-                console.log('fired');
+                showOstrich();
         });
         $('.resultsVideos ul').on('mouseover', '.officeThumb', function() {
-                hidePage(ostrichStats, true);
-                hidePage(fingerStats, true);
-                hidePage(timeStats, true);
-                hidePage(cowboyStats, true);
-                hidePage(winner, true);
-                showPage(officeStats);
-                console.log('fired');
+                showOffice();
         });
 
         $('.resultsVideos ul').on('mouseover', '.fingerThumb', function() {
-                hidePage(officeStats, true);
-                hidePage(timeStats, true);
-                hidePage(cowboyStats, true);
-                hidePage(winner, true);
-                hidePage(ostrichStats, true);
-                showPage(fingerStats);
-                console.log('fired');
+                showFinger();
             });
         
         $('.resultsVideos ul').on('mouseover', '.timeThumb', function() {
-                hidePage(officeStats, true);
-                hidePage(fingerStats, true);
-                hidePage(cowboyStats, true);
-                hidePage(winner, true);
-                hidePage(ostrichStats, true);
-                showPage(timeStats);
-                console.log('fired');
+                showTime();
         });
 
         $('.resultsVideos ul').on('mouseover', '.cowboyThumb', function() {
-                hidePage(officeStats, true);
-                hidePage(fingerStats, true);
-                hidePage(timeStats, true);
-                hidePage(winner, true);
-                hidePage(ostrichStats, true);
-                showPage(cowboyStats);
-                console.log('fired');
+                showCowboy();
         });
  
         // fragments
@@ -230,6 +200,56 @@ function hidePage(elem, instant) {
         elem.addClass('hidden');
         }, 1000);
     }
+}
+
+function showOstrich(evt) {
+    hidePage(officeStats, true);
+    hidePage(fingerStats, true);
+    hidePage(timeStats, true);
+    hidePage(cowboyStats, true);
+    hidePage(winner, true);
+    showPage(ostrichStats);
+    console.log('fired');
+}
+
+function showOffice(evt) {
+    hidePage(ostrichStats, true);
+    hidePage(fingerStats, true);
+    hidePage(timeStats, true);
+    hidePage(cowboyStats, true);
+    hidePage(winner, true);
+    showPage(officeStats);
+    console.log('fired');
+}
+
+function showFinger(evt) {
+    hidePage(officeStats, true);
+    hidePage(timeStats, true);
+    hidePage(cowboyStats, true);
+    hidePage(winner, true);
+    hidePage(ostrichStats, true);
+    showPage(fingerStats);
+    console.log('fired');
+}
+
+function showTime(evt) {
+    hidePage(officeStats, true);
+    hidePage(fingerStats, true);
+    hidePage(cowboyStats, true);
+    hidePage(winner, true);
+    hidePage(ostrichStats, true);
+    showPage(timeStats);
+    console.log('fired');
+}
+
+function showCowboy(evt) {
+    hidePage(officeStats, true);
+    hidePage(fingerStats, true);
+    hidePage(timeStats, true);
+    hidePage(winner, true);
+    hidePage(ostrichStats, true);
+    showPage(cowboyStats);
+    console.log('fired');
 }
 
 function voteThisMoment(cid, callback) {
