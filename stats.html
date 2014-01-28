@@ -2,23 +2,23 @@
 <html>
 <body>
 
-<canvas id="canvas1" width="300" height="150" style="border:1px solid #d3d3d3;">
+<canvas id="canvas1" width="297" height="199" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
-<canvas id="canvas2" width="300" height="150" style="border:1px solid #d3d3d3;">
+<canvas id="canvas2" width="297" height="199" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
-<canvas id="canvas3" width="300" height="150" style="border:1px solid #d3d3d3;">
+<canvas id="canvas3" width="297" height="199" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
-<canvas id="canvas4" width="300" height="150" style="border:1px solid #d3d3d3;">
+<canvas id="canvas4" width="297" height="199" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
-<canvas id="canvas5" width="300" height="150" style="border:1px solid #d3d3d3;">
+<canvas id="canvas5" width="297" height="199" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML5 canvas tag.</canvas>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
   $.getJSON("dummy/data.json", function(data){
     var id=0;
-    var width=300;
-    var height=150;
+    var width=297;
+    var height=199;
     for(var propName in data) {
       id++
 
@@ -26,6 +26,8 @@ Your browser does not support the HTML5 canvas tag.</canvas>
       var ctx=c.getContext("2d");
       ctx.beginPath();
       ctx.moveTo(0,height);
+      ctx.strokeStyle = 'rgba(255, 0, 0, 0)';
+
       if(data.hasOwnProperty(propName)) {
         console.log(propName);
 
@@ -34,6 +36,14 @@ Your browser does not support the HTML5 canvas tag.</canvas>
           var y=height-smileData[i]*height;
           ctx.lineTo(width*i/smileData.length,y);
         };
+        ctx.lineTo(width,height);
+        ctx.lineTo(0,height);
+        var grd=ctx.createLinearGradient(0,0,0,170);
+        grd.addColorStop(0,"#f80001");
+        grd.addColorStop(1,"#b00606");
+
+        ctx.fillStyle=grd;
+        ctx.fill();
 
         ctx.fillText(propName,0,10)
         
