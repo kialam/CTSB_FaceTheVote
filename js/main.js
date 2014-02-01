@@ -100,13 +100,29 @@
         // how button clicked
         results.find('.howButton').on('click', function(evt) {
             evt.preventDefault();
+            
             destinationPage = 'how';
             hidePage(results);     
             showPage(how);
             
-            // start the smile tracker and draw this time
-            smileTracker.setDrawing(true);
-            smileTracker.start();
+            Webcam.startWebcam();
+            
+            setTimeout(function() {
+                
+                smileTracker.start();
+                smileTracker.setDrawing(true);
+                smileTracker.createBarChart('happy_chart');
+                
+            }, 3000);
+            
+        });
+        
+        how.find('.backResults').on('click', function(evt) {
+            smileTracker.pause();
+            Webcam.stopWebcam();
+            
+            hidePage(how);     
+            showPage(results);
         });
         
         // Hover Stats
@@ -166,10 +182,11 @@
                 hidePage(results);
                 hidePage(watch);
                 showPage(how);
-
+                
                 Webcam.startWebcam();
                 smileTracker.setDrawing(true);
                 smileTracker.start();
+                smileTracker.createBarChart('happy_chart');
             }
 
         }

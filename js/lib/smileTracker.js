@@ -103,7 +103,7 @@ var SmileTracker = function() {
         }
         
         if(d) {
-            overlayCC.clearRect(0, 0, 400, 300);
+            overlayCC.clearRect(0, 0, 810, 500);
             if (ctrack.getCurrentPosition()) {
                 ctrack.draw(overlay);
             }

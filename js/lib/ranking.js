@@ -71,19 +71,21 @@ var Ranking = function(data) {
     
     var faceGone = 0.22106179389933026;
     
-    // loop the data and assign the data to the videos array above
-    var count = 0;
-    for(key in data) {
-        for(var i = 0; i < videos.length; i++) {
-            if(key.search(videos[i].id) !== -1) {
-                // we found the correct key
-                videos[i].data = data[key];
-//                videos[i].order = count;
-                count++;
+    if(typeof data !== 'undefined') {
+        // loop the data and assign the data to the videos array above
+        var count = 0;
+        for(key in data) {
+            for(var i = 0; i < videos.length; i++) {
+                if(key.search(videos[i].id) !== -1) {
+                    // we found the correct key
+                    videos[i].data = data[key];
+    //                videos[i].order = count;
+                    count++;
+                }
             }
         }
     }
-    
+        
     this.track = function() {
         // start cataloging results here
     };
